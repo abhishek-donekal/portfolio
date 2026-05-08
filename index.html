@@ -624,13 +624,68 @@
         .project-card {
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 1.8rem 1.5rem;
+            padding: 1.6rem 1.4rem 1.2rem;
             background: var(--card);
             transition: all 0.4s;
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
+        }
+
+        .p-live-badge {
+            position: absolute;
+            top: 12px; right: 12px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 1.5px;
+            padding: 0.18rem 0.55rem;
+            border-radius: 50px;
+            background: rgba(0,255,136,0.12);
+            color: var(--g);
+            border: 1px solid rgba(0,255,136,0.35);
+        }
+
+        .p-links {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: 1rem;
+        }
+
+        .p-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.65rem;
+            padding: 0.28rem 0.7rem;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.25s;
+            letter-spacing: 0.5px;
+        }
+
+        .p-link-gh {
+            border: 1px solid var(--border);
+            color: rgba(255,255,255,0.45);
+            background: transparent;
+        }
+
+        .p-link-gh:hover {
+            border-color: rgba(255,255,255,0.3);
+            color: #fff;
+        }
+
+        .p-link-live {
+            border: 1px solid rgba(0,255,136,0.3);
+            color: var(--g);
+            background: rgba(0,255,136,0.04);
+        }
+
+        .p-link-live:hover {
+            background: rgba(0,255,136,0.12);
+            border-color: var(--g);
+            box-shadow: 0 0 12px rgba(0,255,136,0.2);
         }
 
         /* holographic shimmer */
@@ -1134,70 +1189,153 @@
         </div>
 
         <div class="project-grid">
+
+            <!-- 1 -->
             <div class="project-card">
-                <div class="p-icon">🖥️</div>
-                <div class="p-name">HOME SERVER</div>
-                <div class="p-desc">Full self-hosted AI stack — Windows server running nginx reverse proxy, n8n automation engine, and Ollama local LLMs. Zero cloud dependency.</div>
+                <span class="p-live-badge">&#9679; LIVE</span>
+                <div class="p-icon">&#9889;</div>
+                <div class="p-name">FUSIONFORGE</div>
+                <div class="p-desc">Full-stack TypeScript web app — modern SaaS-style site with component-driven architecture, deployed on Vercel.</div>
+                <div class="p-tags">
+                    <span class="p-tag">TypeScript</span>
+                    <span class="p-tag green">Next.js</span>
+                    <span class="p-tag">Vercel</span>
+                </div>
+                <div class="p-links">
+                    <a href="https://github.com/abhishek-donekal/fusionforge-site" target="_blank" class="p-link p-link-gh">&#8997; GitHub</a>
+                    <a href="https://fusionforge-site.vercel.app" target="_blank" class="p-link p-link-live">&#8599; Live Demo</a>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="project-card">
+                <span class="p-live-badge">&#9679; LIVE</span>
+                <div class="p-icon">&#127760;</div>
+                <div class="p-name">LAGNAF</div>
+                <div class="p-desc">Production-deployed web project — polished HTML/CSS/JS frontend with responsive design and interactive UI, live on Vercel.</div>
+                <div class="p-tags">
+                    <span class="p-tag green">HTML</span>
+                    <span class="p-tag green">CSS</span>
+                    <span class="p-tag">JavaScript</span>
+                </div>
+                <div class="p-links">
+                    <a href="https://github.com/abhishek-donekal/lagnaf" target="_blank" class="p-link p-link-gh">&#8997; GitHub</a>
+                    <a href="https://lagnaf-plum.vercel.app" target="_blank" class="p-link p-link-live">&#8599; Live Demo</a>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="project-card">
+                <span class="p-live-badge">&#9679; LIVE</span>
+                <div class="p-icon">&#129306;</div>
+                <div class="p-name">SAVE ONE PERSON</div>
+                <div class="p-desc">Cause-driven web app — social impact platform with clean UI, deployed live on Vercel.</div>
+                <div class="p-tags">
+                    <span class="p-tag green">HTML</span>
+                    <span class="p-tag">UI/UX</span>
+                    <span class="p-tag">Vercel</span>
+                </div>
+                <div class="p-links">
+                    <a href="https://github.com/abhishek-donekal/saveoneperson-clone" target="_blank" class="p-link p-link-gh">&#8997; GitHub</a>
+                    <a href="https://saveoneperson-clone.vercel.app" target="_blank" class="p-link p-link-live">&#8599; Live Demo</a>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="project-card">
+                <div class="p-icon">&#129516;</div>
+                <div class="p-name">LLM FINE-TUNING ON AWS</div>
+                <div class="p-desc">Fine-tunes and deploys custom LLMs on AWS SageMaker — full training pipeline, inference API, and shell automation for end-to-end MLOps.</div>
+                <div class="p-tags">
+                    <span class="p-tag green">Python</span>
+                    <span class="p-tag">SageMaker</span>
+                    <span class="p-tag purple">LLM</span>
+                    <span class="p-tag">Shell</span>
+                </div>
+                <div class="p-links">
+                    <a href="https://github.com/abhishek-donekal/resume_app_llm_aws" target="_blank" class="p-link p-link-gh">&#8997; GitHub</a>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="project-card">
+                <div class="p-icon">&#129302;</div>
+                <div class="p-name">LINKEDIN AI AUTOMATION</div>
+                <div class="p-desc">AI SaaS that auto-generates and schedules LinkedIn posts — LLM content engine, Docker containerised, web dashboard, and workflow orchestrator.</div>
+                <div class="p-tags">
+                    <span class="p-tag green">Python</span>
+                    <span class="p-tag purple">GenAI</span>
+                    <span class="p-tag">Docker</span>
+                    <span class="p-tag">SaaS</span>
+                </div>
+                <div class="p-links">
+                    <a href="https://github.com/abhishek-donekal/linkdin-posts-automation" target="_blank" class="p-link p-link-gh">&#8997; GitHub</a>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="project-card">
+                <div class="p-icon">&#128196;</div>
+                <div class="p-name">PDF CHATBOT (RAG)</div>
+                <div class="p-desc">Retrieval-Augmented Generation chatbot that ingests PDFs and answers questions using vector search and LLM reasoning.</div>
+                <div class="p-tags">
+                    <span class="p-tag green">Python</span>
+                    <span class="p-tag purple">RAG</span>
+                    <span class="p-tag">LLM</span>
+                    <span class="p-tag">Vector DB</span>
+                </div>
+                <div class="p-links">
+                    <a href="https://github.com/abhishek-donekal/pdf_chatbot" target="_blank" class="p-link p-link-gh">&#8997; GitHub</a>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="project-card">
+                <div class="p-icon">&#127968;</div>
+                <div class="p-name">MIAMI HOUSING ML</div>
+                <div class="p-desc">ML analysis of Miami's housing market — predictive modeling with feature engineering, regression models, and data visualisations in Jupyter.</div>
+                <div class="p-tags">
+                    <span class="p-tag green">Python</span>
+                    <span class="p-tag">Jupyter</span>
+                    <span class="p-tag purple">ML</span>
+                    <span class="p-tag">Data Science</span>
+                </div>
+                <div class="p-links">
+                    <a href="https://github.com/abhishek-donekal/miami-housing-ml-analysis" target="_blank" class="p-link p-link-gh">&#8997; GitHub</a>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="project-card">
+                <div class="p-icon">&#128188;</div>
+                <div class="p-name">RECRUITER CHATBOT</div>
+                <div class="p-desc">AI chatbot for recruiting workflows — answers candidate questions, qualifies applicants, and automates recruiter-side interactions.</div>
+                <div class="p-tags">
+                    <span class="p-tag green">Python</span>
+                    <span class="p-tag purple">AI Agent</span>
+                    <span class="p-tag">Chatbot</span>
+                </div>
+                <div class="p-links">
+                    <a href="https://github.com/abhishek-donekal/recruiter_chatbot" target="_blank" class="p-link p-link-gh">&#8997; GitHub</a>
+                </div>
+            </div>
+
+            <!-- 9 -->
+            <div class="project-card">
+                <div class="p-icon">&#128421;</div>
+                <div class="p-name">HOME SERVER + DURYO AGENT</div>
+                <div class="p-desc">Self-hosted AI stack on personal hardware — nginx, n8n, Ollama LLMs. DURYO Agent autonomously monitors system health and fires AI-powered alerts.</div>
                 <div class="p-tags">
                     <span class="p-tag green">nginx</span>
                     <span class="p-tag green">n8n</span>
                     <span class="p-tag">Ollama</span>
-                    <span class="p-tag">Windows</span>
+                    <span class="p-tag purple">AI Agent</span>
+                </div>
+                <div class="p-links">
+                    <a href="https://github.com/abhishek-donekal" target="_blank" class="p-link p-link-gh">&#8997; GitHub</a>
                 </div>
             </div>
-            <div class="project-card">
-                <div class="p-icon">🤖</div>
-                <div class="p-name">DURYO AGENT</div>
-                <div class="p-desc">AI-powered server monitoring agent — autonomously observes system health, generates intelligent reports, and fires automated alerts.</div>
-                <div class="p-tags">
-                    <span class="p-tag green">AI Agent</span>
-                    <span class="p-tag green">Python</span>
-                    <span class="p-tag">Monitoring</span>
-                    <span class="p-tag purple">Automation</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="p-icon">🌐</div>
-                <div class="p-name">MULTI-SITE HOSTING</div>
-                <div class="p-desc">Self-hosted web infrastructure via Cloudflare tunnels — secure public HTTPS with zero open firewall ports, running entirely from home hardware.</div>
-                <div class="p-tags">
-                    <span class="p-tag">Cloudflare</span>
-                    <span class="p-tag green">nginx</span>
-                    <span class="p-tag purple">Self-Host</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="p-icon">📊</div>
-                <div class="p-name">ENTERPRISE DATA PLATFORM</div>
-                <div class="p-desc">Scalable data engineering solutions on AWS + Databricks powering analytics, BI pipelines, and executive dashboards for Carnival Cruise Line.</div>
-                <div class="p-tags">
-                    <span class="p-tag">AWS</span>
-                    <span class="p-tag">Databricks</span>
-                    <span class="p-tag green">Python</span>
-                    <span class="p-tag">Spark</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="p-icon">🧠</div>
-                <div class="p-name">GENERATIVE AI PIPELINE</div>
-                <div class="p-desc">Enterprise GenAI systems combining RAG, fine-tuned LLMs, and production data pipelines for intelligent automation and real-time insights.</div>
-                <div class="p-tags">
-                    <span class="p-tag green">GenAI</span>
-                    <span class="p-tag purple">LLM</span>
-                    <span class="p-tag">RAG</span>
-                    <span class="p-tag green">Python</span>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="p-icon">⚙️</div>
-                <div class="p-name">ML PIPELINE</div>
-                <div class="p-desc">End-to-end ML pipelines with TensorFlow and Django — from data ingestion to model serving via REST API, deployed for production workloads.</div>
-                <div class="p-tags">
-                    <span class="p-tag">TensorFlow</span>
-                    <span class="p-tag">Django</span>
-                    <span class="p-tag purple">MLOps</span>
-                </div>
-            </div>
+
         </div>
     </div>
 
