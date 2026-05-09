@@ -763,55 +763,254 @@
 
         /* ── CERTS ── */
         .cert-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 1.25rem;
         }
 
         .cert-card {
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 1.5rem;
-            background: var(--card);
+            border-radius: 16px;
+            padding: 0;
             display: flex;
-            align-items: center;
-            gap: 1.25rem;
-            transition: all 0.3s;
-            position: relative;
             overflow: hidden;
-        }
-
-        .cert-card::after {
-            content: 'VERIFIED';
-            position: absolute;
-            top: 12px; right: 14px;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.55rem;
-            letter-spacing: 2px;
-            color: var(--g);
-            opacity: 0.4;
+            transition: all 0.35s;
+            position: relative;
+            border: 1px solid var(--border);
         }
 
         .cert-card:hover {
-            border-color: rgba(0,255,136,0.4);
-            box-shadow: 0 0 30px rgba(0,255,136,0.08);
-            transform: translateY(-3px);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
 
-        .cert-badge {
-            width: 60px; height: 60px;
-            border-radius: 12px;
-            border: 1px solid var(--border);
+        .cert-card.gcp:hover  { border-color: rgba(66,133,244,0.5);  box-shadow: 0 20px 50px rgba(66,133,244,0.15); }
+        .cert-card.aws:hover  { border-color: rgba(255,153,0,0.5);   box-shadow: 0 20px 50px rgba(255,153,0,0.15);  }
+
+        .cert-accent {
+            width: 8px;
+            flex-shrink: 0;
+        }
+        .cert-card.gcp .cert-accent { background: linear-gradient(180deg, #4285F4, #34A853, #FBBC04, #EA4335); }
+        .cert-card.aws .cert-accent { background: linear-gradient(180deg, #FF9900, #FFB347); }
+
+        .cert-body {
+            flex: 1;
+            padding: 1.6rem 1.8rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            background: var(--card);
+        }
+
+        .cert-logo {
+            width: 72px; height: 72px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
             flex-shrink: 0;
-            background: rgba(0,0,0,0.3);
+            font-size: 2.2rem;
+        }
+        .cert-card.gcp .cert-logo { background: linear-gradient(135deg, rgba(66,133,244,0.15), rgba(52,168,83,0.1)); border: 1px solid rgba(66,133,244,0.25); }
+        .cert-card.aws .cert-logo { background: linear-gradient(135deg, rgba(255,153,0,0.15), rgba(255,179,71,0.1)); border: 1px solid rgba(255,153,0,0.25); }
+
+        .cert-info { flex: 1; }
+
+        .cert-top-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.4rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
         }
 
-        .cert-name   { font-family:'Orbitron',monospace; font-size:0.78rem; font-weight:700; color:#fff; letter-spacing:0.5px; margin-bottom:0.3rem; }
-        .cert-issuer { font-family:'Fira Code',monospace; font-size:0.7rem; color:rgba(0,255,136,0.5); }
+        .cert-name {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.5px;
+        }
+
+        .cert-verified {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.62rem;
+            letter-spacing: 1.5px;
+            padding: 0.2rem 0.65rem;
+            border-radius: 50px;
+        }
+        .cert-card.gcp .cert-verified { color: #4285F4; background: rgba(66,133,244,0.1); border: 1px solid rgba(66,133,244,0.25); }
+        .cert-card.aws .cert-verified { color: #FF9900; background: rgba(255,153,0,0.1);  border: 1px solid rgba(255,153,0,0.25);  }
+
+        .cert-issuer {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.35);
+            margin-bottom: 1rem;
+        }
+
+        .cert-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .cert-skill {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.63rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 5px;
+        }
+        .cert-card.gcp .cert-skill { background: rgba(66,133,244,0.08); color: #7AB3F7; border: 1px solid rgba(66,133,244,0.2); }
+        .cert-card.aws .cert-skill { background: rgba(255,153,0,0.08);  color: #FFB347; border: 1px solid rgba(255,153,0,0.2);  }
+
+        /* ── HIRE ME ── */
+        .hire-wrap {
+            border: 1px solid rgba(0,255,136,0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--card);
+        }
+
+        .hire-banner {
+            padding: 2.5rem 2.5rem 2rem;
+            background: linear-gradient(135deg, rgba(0,255,136,0.06) 0%, rgba(0,212,255,0.04) 100%);
+            border-bottom: 1px solid rgba(0,255,136,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .hire-status {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .hire-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: var(--g);
+            box-shadow: 0 0 12px var(--g);
+            animation: pulse 1.8s infinite;
+        }
+
+        .hire-label {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.72rem;
+            color: var(--g);
+            letter-spacing: 2px;
+        }
+
+        .hire-title {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 900;
+            color: #fff;
+            margin-top: 0.5rem;
+        }
+
+        .hire-sub {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 0.4rem;
+            line-height: 1.6;
+        }
+
+        .hire-modes {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .hire-mode {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.7rem;
+            padding: 0.3rem 0.9rem;
+            border-radius: 50px;
+            border: 1px solid rgba(0,255,136,0.2);
+            color: rgba(0,255,136,0.7);
+            background: rgba(0,255,136,0.04);
+        }
+
+        .hire-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+        .hire-cta-main {
+            padding: 0.75rem 2rem;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            border-radius: 6px;
+            background: linear-gradient(135deg, var(--g), var(--b));
+            color: #020408;
+            transition: all 0.3s;
+        }
+        .hire-cta-main:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,255,136,0.4); }
+
+        .hire-cta-sec {
+            padding: 0.75rem 1.5rem;
+            font-family: 'Orbitron', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            border-radius: 6px;
+            border: 1px solid rgba(0,255,136,0.35);
+            color: var(--g);
+            background: transparent;
+            transition: all 0.3s;
+        }
+        .hire-cta-sec:hover { background: rgba(0,255,136,0.08); }
+
+        .hire-contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+        }
+
+        .hire-contact-item {
+            padding: 1.5rem 2rem;
+            border-right: 1px solid rgba(0,255,136,0.08);
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            transition: background 0.25s;
+            text-decoration: none;
+        }
+        .hire-contact-item:last-child { border-right: none; }
+        .hire-contact-item:hover { background: rgba(0,255,136,0.03); }
+
+        .hire-contact-type {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.62rem;
+            color: rgba(0,255,136,0.4);
+            letter-spacing: 2px;
+        }
+
+        .hire-contact-val {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.75);
+            font-weight: 500;
+        }
+
+        .hire-contact-arrow {
+            font-size: 0.75rem;
+            color: var(--g);
+            margin-top: 0.2rem;
+            opacity: 0;
+            transform: translateX(-4px);
+            transition: all 0.25s;
+        }
+        .hire-contact-item:hover .hire-contact-arrow { opacity: 1; transform: translateX(0); }
 
         /* ── SERVICES ── */
         .service-grid {
@@ -904,11 +1103,15 @@
 
         /* ── RESPONSIVE ── */
         @media (max-width: 900px) {
-            .about-grid, .skills-container, .cert-grid { grid-template-columns: 1fr; }
+            .about-grid, .skills-container { grid-template-columns: 1fr; }
             .agents-grid, .project-grid, .service-grid { grid-template-columns: 1fr 1fr; }
             .tools-grid { grid-template-columns: repeat(3, 1fr); }
+            .hire-contact-grid { grid-template-columns: 1fr; }
+            .hire-contact-item { border-right: none; border-bottom: 1px solid rgba(0,255,136,0.08); }
+            .hire-contact-item:last-child { border-bottom: none; }
             nav { padding: 0 1.5rem; }
-            .nav-links { gap: 1.5rem; }
+            .nav-links { gap: 1.2rem; }
+            .cert-body { gap: 1rem; }
         }
 
         @media (max-width: 600px) {
@@ -916,6 +1119,9 @@
             .agents-grid, .project-grid, .service-grid { grid-template-columns: 1fr; }
             .hero-stats { gap: 1rem; }
             .section { padding: 4rem 1.2rem; }
+            .cert-body { flex-direction: column; }
+            .cert-logo { width: 52px; height: 52px; }
+            .hire-banner { flex-direction: column; }
         }
     </style>
 </head>
@@ -930,6 +1136,7 @@
             <li><a href="#skills">skills</a></li>
             <li><a href="#projects">projects</a></li>
             <li><a href="#certifications">certs</a></li>
+            <li><a href="#hire">hire&nbsp;me</a></li>
         </ul>
     </nav>
 
@@ -1348,20 +1555,68 @@
         </div>
 
         <div class="cert-grid">
-            <div class="cert-card">
-                <div class="cert-badge">☁️</div>
-                <div>
-                    <div class="cert-name">Professional Cloud DevOps Engineer</div>
-                    <div class="cert-issuer">Google Cloud · Verified on Credly</div>
+
+            <!-- Google Cloud -->
+            <div class="cert-card gcp">
+                <div class="cert-accent"></div>
+                <div class="cert-body">
+                    <div class="cert-logo">
+                        <svg width="38" height="38" viewBox="0 0 48 48" fill="none">
+                            <path d="M24 8.4l10.4 6v12l-10.4 6-10.4-6v-12z" fill="#4285F4"/>
+                            <path d="M13.6 26.4L24 32.4l10.4-6v-12L24 8.4 13.6 14.4v12z" fill="#4285F4" opacity="0.3"/>
+                            <circle cx="24" cy="20.4" r="6" fill="#fff" opacity="0.9"/>
+                            <path d="M24 17l1.8 3.6H22.2L24 17z" fill="#4285F4"/>
+                        </svg>
+                    </div>
+                    <div class="cert-info">
+                        <div class="cert-top-row">
+                            <div class="cert-name">Professional Cloud DevOps Engineer</div>
+                            <div class="cert-verified">&#10003; VERIFIED</div>
+                        </div>
+                        <div class="cert-issuer">Google Cloud &nbsp;&#183;&nbsp; Verified on Credly &nbsp;&#183;&nbsp; Active</div>
+                        <div class="cert-skills">
+                            <span class="cert-skill">CI/CD Pipelines</span>
+                            <span class="cert-skill">Kubernetes</span>
+                            <span class="cert-skill">Cloud Monitoring</span>
+                            <span class="cert-skill">SRE Practices</span>
+                            <span class="cert-skill">GCP DevOps</span>
+                            <span class="cert-skill">Infrastructure as Code</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="cert-card">
-                <div class="cert-badge">🔶</div>
-                <div>
-                    <div class="cert-name">AWS Certified SysOps Administrator</div>
-                    <div class="cert-issuer">Amazon Web Services · Associate · Credly</div>
+
+            <!-- AWS -->
+            <div class="cert-card aws">
+                <div class="cert-accent"></div>
+                <div class="cert-body">
+                    <div class="cert-logo">
+                        <svg width="38" height="38" viewBox="0 0 48 48" fill="none">
+                            <path d="M14 28c0 2.2 4.5 4 10 4s10-1.8 10-4" stroke="#FF9900" stroke-width="2" fill="none"/>
+                            <path d="M14 24v4c0 2.2 4.5 4 10 4s10-1.8 10-4v-4" stroke="#FF9900" stroke-width="2" fill="none"/>
+                            <ellipse cx="24" cy="24" rx="10" ry="4" fill="#FF9900" opacity="0.8"/>
+                            <path d="M30 20l4 4-4 4" stroke="#FF9900" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                            <path d="M18 20l-4 4 4 4" stroke="#FF9900" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <div class="cert-info">
+                        <div class="cert-top-row">
+                            <div class="cert-name">AWS Certified SysOps Administrator</div>
+                            <div class="cert-verified">&#10003; VERIFIED</div>
+                        </div>
+                        <div class="cert-issuer">Amazon Web Services &nbsp;&#183;&nbsp; Associate Level &nbsp;&#183;&nbsp; Credly Verified</div>
+                        <div class="cert-skills">
+                            <span class="cert-skill">EC2 &amp; Auto Scaling</span>
+                            <span class="cert-skill">CloudWatch</span>
+                            <span class="cert-skill">IAM Security</span>
+                            <span class="cert-skill">S3 &amp; Storage</span>
+                            <span class="cert-skill">VPC Networking</span>
+                            <span class="cert-skill">Systems Operations</span>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
     </div>
 
@@ -1374,15 +1629,68 @@
         </div>
 
         <div class="service-grid">
-            <div class="service-item">Data Reporting</div>
+            <div class="service-item">Data Reporting &amp; Analytics</div>
             <div class="service-item">IT Consulting</div>
             <div class="service-item">Cloud Management</div>
             <div class="service-item">SaaS Development</div>
             <div class="service-item">Database Development</div>
             <div class="service-item">Computer Networking</div>
             <div class="service-item">Cloud App Development</div>
+            <div class="service-item">AI Agent Engineering</div>
             <div class="service-item">Technical Support</div>
-            <div class="service-item">Virtual Assistance</div>
+        </div>
+    </div>
+
+    <!-- HIRE ME -->
+    <div class="section reveal" id="hire">
+        <div class="section-header">
+            <span class="section-num">07</span>
+            <h2 class="section-title">OPEN FOR BUSINESS</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="hire-wrap">
+            <div class="hire-banner">
+                <div>
+                    <div class="hire-status">
+                        <div class="hire-dot"></div>
+                        <span class="hire-label">AVAILABLE NOW</span>
+                    </div>
+                    <div class="hire-title">Let's Build Something Intelligent</div>
+                    <div class="hire-sub">
+                        Open to full-time roles, contract work, and freelance AI/data engineering projects.<br>
+                        Based in Miami, FL &mdash; available globally.
+                    </div>
+                    <div class="hire-modes">
+                        <span class="hire-mode">On-site</span>
+                        <span class="hire-mode">Hybrid</span>
+                        <span class="hire-mode">Remote</span>
+                        <span class="hire-mode">Contract</span>
+                        <span class="hire-mode">Freelance</span>
+                    </div>
+                </div>
+                <div class="hire-ctas">
+                    <a href="https://www.linkedin.com/in/abhishek-donekal/" target="_blank" class="hire-cta-main">HIRE ME</a>
+                    <a href="https://www.linkedin.com/in/abhishek-donekal/" target="_blank" class="hire-cta-sec">VIEW LINKEDIN</a>
+                </div>
+            </div>
+            <div class="hire-contact-grid">
+                <a href="https://www.linkedin.com/in/abhishek-donekal/" target="_blank" class="hire-contact-item">
+                    <span class="hire-contact-type">// LINKEDIN</span>
+                    <span class="hire-contact-val">abhishek-donekal</span>
+                    <span class="hire-contact-arrow">&#8599; Connect</span>
+                </a>
+                <a href="https://github.com/abhishek-donekal" target="_blank" class="hire-contact-item">
+                    <span class="hire-contact-type">// GITHUB</span>
+                    <span class="hire-contact-val">abhishek-donekal</span>
+                    <span class="hire-contact-arrow">&#8599; View Code</span>
+                </a>
+                <a href="mailto:" class="hire-contact-item">
+                    <span class="hire-contact-type">// EMAIL</span>
+                    <span class="hire-contact-val">Drop a message</span>
+                    <span class="hire-contact-arrow">&#8599; Send Mail</span>
+                </a>
+            </div>
         </div>
     </div>
 
@@ -1391,11 +1699,12 @@
         <div class="footer-logo">ABHISHEK DONEKAL</div>
         <div class="footer-links">
             <a href="https://www.linkedin.com/in/abhishek-donekal/" target="_blank">LinkedIn</a>
-            <a href="mailto:">Email</a>
-            <a href="#hero">Back to Top</a>
+            <a href="https://github.com/abhishek-donekal" target="_blank">GitHub</a>
+            <a href="#hire">Hire Me</a>
+            <a href="#hero">Top</a>
         </div>
         <div class="footer-copy">
-            Hosted on Home Server &nbsp;·&nbsp; Powered by DURYO &nbsp;·&nbsp; Miami, FL
+            AI Agents Implementation Engineer &nbsp;&#183;&nbsp; Miami, FL &nbsp;&#183;&nbsp; Hosted on Home Server &nbsp;&#183;&nbsp; Powered by DURYO
         </div>
     </footer>
 
