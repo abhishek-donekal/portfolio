@@ -765,11 +765,31 @@
         .cert-grid {
             display: flex;
             flex-direction: column;
-            gap: 1.25rem;
+            gap: 1rem;
+        }
+
+        .cert-row-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .cert-badges-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+
+        .cert-section-label {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.65rem;
+            color: rgba(0,255,136,0.35);
+            letter-spacing: 3px;
+            margin: 0.5rem 0 0.25rem;
         }
 
         .cert-card {
-            border-radius: 16px;
+            border-radius: 14px;
             padding: 0;
             display: flex;
             overflow: hidden;
@@ -778,95 +798,107 @@
             border: 1px solid var(--border);
         }
 
-        .cert-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-        }
+        .cert-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
 
-        .cert-card.gcp:hover  { border-color: rgba(66,133,244,0.5);  box-shadow: 0 20px 50px rgba(66,133,244,0.15); }
-        .cert-card.aws:hover  { border-color: rgba(255,153,0,0.5);   box-shadow: 0 20px 50px rgba(255,153,0,0.15);  }
+        .cert-card.aws:hover        { border-color: rgba(255,153,0,0.5);    box-shadow: 0 16px 40px rgba(255,153,0,0.15);    }
+        .cert-card.gcp:hover        { border-color: rgba(66,133,244,0.5);   box-shadow: 0 16px 40px rgba(66,133,244,0.15);   }
+        .cert-card.azure:hover      { border-color: rgba(0,120,212,0.5);    box-shadow: 0 16px 40px rgba(0,120,212,0.15);    }
+        .cert-card.databricks:hover { border-color: rgba(255,54,33,0.5);    box-shadow: 0 16px 40px rgba(255,54,33,0.12);    }
+        .cert-card.cloudera:hover   { border-color: rgba(0,167,160,0.5);    box-shadow: 0 16px 40px rgba(0,167,160,0.12);    }
 
-        .cert-accent {
-            width: 8px;
-            flex-shrink: 0;
-        }
-        .cert-card.gcp .cert-accent { background: linear-gradient(180deg, #4285F4, #34A853, #FBBC04, #EA4335); }
-        .cert-card.aws .cert-accent { background: linear-gradient(180deg, #FF9900, #FFB347); }
+        .cert-accent { width: 6px; flex-shrink: 0; }
+        .cert-card.aws .cert-accent        { background: linear-gradient(180deg,#FF9900,#FFB347); }
+        .cert-card.gcp .cert-accent        { background: linear-gradient(180deg,#4285F4,#34A853,#FBBC04,#EA4335); }
+        .cert-card.azure .cert-accent      { background: linear-gradient(180deg,#0078D4,#50e6ff); }
+        .cert-card.databricks .cert-accent { background: linear-gradient(180deg,#FF3621,#FF6B4A); }
+        .cert-card.cloudera .cert-accent   { background: linear-gradient(180deg,#00A7A0,#00D4CC); }
 
         .cert-body {
             flex: 1;
-            padding: 1.6rem 1.8rem;
+            padding: 1.3rem 1.5rem;
             display: flex;
-            gap: 1.5rem;
+            gap: 1.2rem;
             align-items: center;
             background: var(--card);
         }
 
+        /* compact body for badge-row */
+        .cert-badge-card .cert-body { padding: 1rem 1.25rem; gap: 1rem; }
+
         .cert-logo {
-            width: 72px; height: 72px;
-            border-radius: 14px;
+            width: 60px; height: 60px;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            font-size: 2.2rem;
+            font-size: 1.8rem;
         }
-        .cert-card.gcp .cert-logo { background: linear-gradient(135deg, rgba(66,133,244,0.15), rgba(52,168,83,0.1)); border: 1px solid rgba(66,133,244,0.25); }
-        .cert-card.aws .cert-logo { background: linear-gradient(135deg, rgba(255,153,0,0.15), rgba(255,179,71,0.1)); border: 1px solid rgba(255,153,0,0.25); }
+        .cert-badge-card .cert-logo { width: 48px; height: 48px; font-size: 1.5rem; border-radius: 10px; }
 
-        .cert-info { flex: 1; }
+        .cert-card.aws .cert-logo        { background:rgba(255,153,0,0.12);  border:1px solid rgba(255,153,0,0.25); }
+        .cert-card.gcp .cert-logo        { background:rgba(66,133,244,0.12); border:1px solid rgba(66,133,244,0.25); }
+        .cert-card.azure .cert-logo      { background:rgba(0,120,212,0.12);  border:1px solid rgba(0,120,212,0.25); }
+        .cert-card.databricks .cert-logo { background:rgba(255,54,33,0.1);   border:1px solid rgba(255,54,33,0.2); }
+        .cert-card.cloudera .cert-logo   { background:rgba(0,167,160,0.1);   border:1px solid rgba(0,167,160,0.2); }
+
+        .cert-info { flex: 1; min-width: 0; }
 
         .cert-top-row {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
-            margin-bottom: 0.4rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .cert-name {
-            font-family: 'Orbitron', monospace;
-            font-size: 0.88rem;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 0.5px;
-        }
-
-        .cert-verified {
-            display: flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-family: 'Fira Code', monospace;
-            font-size: 0.62rem;
-            letter-spacing: 1.5px;
-            padding: 0.2rem 0.65rem;
-            border-radius: 50px;
-        }
-        .cert-card.gcp .cert-verified { color: #4285F4; background: rgba(66,133,244,0.1); border: 1px solid rgba(66,133,244,0.25); }
-        .cert-card.aws .cert-verified { color: #FF9900; background: rgba(255,153,0,0.1);  border: 1px solid rgba(255,153,0,0.25);  }
-
-        .cert-issuer {
-            font-family: 'Fira Code', monospace;
-            font-size: 0.72rem;
-            color: rgba(255,255,255,0.35);
-            margin-bottom: 1rem;
-        }
-
-        .cert-skills {
-            display: flex;
+            margin-bottom: 0.3rem;
             flex-wrap: wrap;
             gap: 0.4rem;
         }
 
+        .cert-name {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 0.5px;
+            line-height: 1.3;
+        }
+        .cert-badge-card .cert-name { font-size: 0.75rem; }
+
+        .cert-verified {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 1.5px;
+            padding: 0.18rem 0.55rem;
+            border-radius: 50px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .cert-card.aws .cert-verified        { color:#FF9900; background:rgba(255,153,0,0.1);   border:1px solid rgba(255,153,0,0.3);    }
+        .cert-card.gcp .cert-verified        { color:#4285F4; background:rgba(66,133,244,0.1);  border:1px solid rgba(66,133,244,0.3);   }
+        .cert-card.azure .cert-verified      { color:#50e6ff; background:rgba(0,120,212,0.1);   border:1px solid rgba(0,120,212,0.3);    }
+        .cert-card.databricks .cert-verified { color:#FF6B4A; background:rgba(255,54,33,0.08);  border:1px solid rgba(255,54,33,0.25);   }
+        .cert-card.cloudera .cert-verified   { color:#00D4CC; background:rgba(0,167,160,0.08);  border:1px solid rgba(0,167,160,0.25);   }
+
+        .cert-issuer {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.68rem;
+            color: rgba(255,255,255,0.3);
+            margin-bottom: 0.75rem;
+        }
+        .cert-badge-card .cert-issuer { margin-bottom: 0; }
+
+        .cert-skills { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
         .cert-skill {
             font-family: 'Fira Code', monospace;
-            font-size: 0.63rem;
-            padding: 0.2rem 0.6rem;
-            border-radius: 5px;
+            font-size: 0.6rem;
+            padding: 0.18rem 0.5rem;
+            border-radius: 4px;
         }
-        .cert-card.gcp .cert-skill { background: rgba(66,133,244,0.08); color: #7AB3F7; border: 1px solid rgba(66,133,244,0.2); }
-        .cert-card.aws .cert-skill { background: rgba(255,153,0,0.08);  color: #FFB347; border: 1px solid rgba(255,153,0,0.2);  }
+        .cert-card.aws .cert-skill        { background:rgba(255,153,0,0.08);   color:#FFB347; border:1px solid rgba(255,153,0,0.2);    }
+        .cert-card.gcp .cert-skill        { background:rgba(66,133,244,0.08);  color:#7AB3F7; border:1px solid rgba(66,133,244,0.2);   }
+        .cert-card.azure .cert-skill      { background:rgba(0,120,212,0.08);   color:#50e6ff; border:1px solid rgba(0,120,212,0.2);    }
+        .cert-card.databricks .cert-skill { background:rgba(255,54,33,0.07);   color:#FF8A76; border:1px solid rgba(255,54,33,0.18);   }
+        .cert-card.cloudera .cert-skill   { background:rgba(0,167,160,0.07);   color:#00D4CC; border:1px solid rgba(0,167,160,0.18);   }
 
         /* ── HIRE ME ── */
         .hire-wrap {
@@ -1105,6 +1137,7 @@
         @media (max-width: 900px) {
             .about-grid, .skills-container { grid-template-columns: 1fr; }
             .agents-grid, .project-grid, .service-grid { grid-template-columns: 1fr 1fr; }
+            .cert-row-2, .cert-badges-row { grid-template-columns: 1fr; }
             .tools-grid { grid-template-columns: repeat(3, 1fr); }
             .hire-contact-grid { grid-template-columns: 1fr; }
             .hire-contact-item { border-right: none; border-bottom: 1px solid rgba(0,255,136,0.08); }
@@ -1556,65 +1589,191 @@
 
         <div class="cert-grid">
 
-            <!-- Google Cloud -->
-            <div class="cert-card gcp">
-                <div class="cert-accent"></div>
-                <div class="cert-body">
-                    <div class="cert-logo">
-                        <svg width="38" height="38" viewBox="0 0 48 48" fill="none">
-                            <path d="M24 8.4l10.4 6v12l-10.4 6-10.4-6v-12z" fill="#4285F4"/>
-                            <path d="M13.6 26.4L24 32.4l10.4-6v-12L24 8.4 13.6 14.4v12z" fill="#4285F4" opacity="0.3"/>
-                            <circle cx="24" cy="20.4" r="6" fill="#fff" opacity="0.9"/>
-                            <path d="M24 17l1.8 3.6H22.2L24 17z" fill="#4285F4"/>
-                        </svg>
-                    </div>
-                    <div class="cert-info">
-                        <div class="cert-top-row">
-                            <div class="cert-name">Professional Cloud DevOps Engineer</div>
-                            <div class="cert-verified">&#10003; VERIFIED</div>
+            <!-- ── ROW 1: AWS + GCP DevOps ── -->
+            <div class="cert-section-label">// CLOUD PLATFORM CERTIFICATIONS</div>
+            <div class="cert-row-2">
+
+                <div class="cert-card aws">
+                    <div class="cert-accent"></div>
+                    <div class="cert-body">
+                        <div class="cert-logo">
+                            <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
+                                <path d="M22 48c0 3.3 8 6 18 6s18-2.7 18-6" stroke="#FF9900" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                <path d="M22 40v8c0 3.3 8 6 18 6s18-2.7 18-6v-8" stroke="#FF9900" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                <ellipse cx="40" cy="40" rx="18" ry="6" fill="#FF9900" opacity="0.85"/>
+                                <path d="M52 34l6 6-6 6" stroke="#FF9900" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                                <path d="M28 34l-6 6 6 6" stroke="#FF9900" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                            </svg>
                         </div>
-                        <div class="cert-issuer">Google Cloud &nbsp;&#183;&nbsp; Verified on Credly &nbsp;&#183;&nbsp; Active</div>
-                        <div class="cert-skills">
-                            <span class="cert-skill">CI/CD Pipelines</span>
-                            <span class="cert-skill">Kubernetes</span>
-                            <span class="cert-skill">Cloud Monitoring</span>
-                            <span class="cert-skill">SRE Practices</span>
-                            <span class="cert-skill">GCP DevOps</span>
-                            <span class="cert-skill">Infrastructure as Code</span>
+                        <div class="cert-info">
+                            <div class="cert-top-row">
+                                <div class="cert-name">AWS Certified SysOps Administrator</div>
+                                <div class="cert-verified">&#10003; CREDLY</div>
+                            </div>
+                            <div class="cert-issuer">Amazon Web Services &nbsp;&#183;&nbsp; Associate &nbsp;&#183;&nbsp; Active</div>
+                            <div class="cert-skills">
+                                <span class="cert-skill">EC2 &amp; Auto Scaling</span>
+                                <span class="cert-skill">CloudWatch</span>
+                                <span class="cert-skill">IAM &amp; Security</span>
+                                <span class="cert-skill">S3 &amp; Storage</span>
+                                <span class="cert-skill">VPC Networking</span>
+                                <span class="cert-skill">Systems Operations</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="cert-card gcp">
+                    <div class="cert-accent"></div>
+                    <div class="cert-body">
+                        <div class="cert-logo">
+                            <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
+                                <path d="M40 14l17 10v20l-17 10-17-10V24z" fill="#4285F4" opacity="0.15" stroke="#4285F4" stroke-width="2"/>
+                                <circle cx="40" cy="36" r="10" fill="none" stroke="#4285F4" stroke-width="2.5"/>
+                                <circle cx="40" cy="36" r="4" fill="#4285F4"/>
+                                <path d="M40 26v4M40 42v4M30 36h4M46 36h4" stroke="#EA4335" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M34 30l2 2M44 40l2 2M34 42l2-2M44 32l2-2" stroke="#34A853" stroke-width="1.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="cert-info">
+                            <div class="cert-top-row">
+                                <div class="cert-name">Professional Cloud DevOps Engineer</div>
+                                <div class="cert-verified">&#10003; CREDLY</div>
+                            </div>
+                            <div class="cert-issuer">Google Cloud &nbsp;&#183;&nbsp; Professional &nbsp;&#183;&nbsp; Active</div>
+                            <div class="cert-skills">
+                                <span class="cert-skill">CI/CD Pipelines</span>
+                                <span class="cert-skill">GKE &amp; Kubernetes</span>
+                                <span class="cert-skill">Stackdriver</span>
+                                <span class="cert-skill">SRE Practices</span>
+                                <span class="cert-skill">IaC / Terraform</span>
+                                <span class="cert-skill">Cloud Build</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-            <!-- AWS -->
-            <div class="cert-card aws">
-                <div class="cert-accent"></div>
-                <div class="cert-body">
-                    <div class="cert-logo">
-                        <svg width="38" height="38" viewBox="0 0 48 48" fill="none">
-                            <path d="M14 28c0 2.2 4.5 4 10 4s10-1.8 10-4" stroke="#FF9900" stroke-width="2" fill="none"/>
-                            <path d="M14 24v4c0 2.2 4.5 4 10 4s10-1.8 10-4v-4" stroke="#FF9900" stroke-width="2" fill="none"/>
-                            <ellipse cx="24" cy="24" rx="10" ry="4" fill="#FF9900" opacity="0.8"/>
-                            <path d="M30 20l4 4-4 4" stroke="#FF9900" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                            <path d="M18 20l-4 4 4 4" stroke="#FF9900" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <div class="cert-info">
-                        <div class="cert-top-row">
-                            <div class="cert-name">AWS Certified SysOps Administrator</div>
-                            <div class="cert-verified">&#10003; VERIFIED</div>
+            <!-- ── ROW 2: GCP Associate + Azure x2 ── -->
+            <div class="cert-row-2">
+
+                <div class="cert-card gcp">
+                    <div class="cert-accent"></div>
+                    <div class="cert-body">
+                        <div class="cert-logo">
+                            <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
+                                <path d="M40 18l22 12v24l-22 12-22-12V30z" fill="#34A853" opacity="0.12" stroke="#34A853" stroke-width="2"/>
+                                <path d="M28 38h24M40 26v24" stroke="#4285F4" stroke-width="2.5" stroke-linecap="round"/>
+                                <circle cx="40" cy="38" r="6" fill="#FBBC04" opacity="0.8"/>
+                            </svg>
                         </div>
-                        <div class="cert-issuer">Amazon Web Services &nbsp;&#183;&nbsp; Associate Level &nbsp;&#183;&nbsp; Credly Verified</div>
-                        <div class="cert-skills">
-                            <span class="cert-skill">EC2 &amp; Auto Scaling</span>
-                            <span class="cert-skill">CloudWatch</span>
-                            <span class="cert-skill">IAM Security</span>
-                            <span class="cert-skill">S3 &amp; Storage</span>
-                            <span class="cert-skill">VPC Networking</span>
-                            <span class="cert-skill">Systems Operations</span>
+                        <div class="cert-info">
+                            <div class="cert-top-row">
+                                <div class="cert-name">Associate Cloud Engineer</div>
+                                <div class="cert-verified">&#10003; CREDLY</div>
+                            </div>
+                            <div class="cert-issuer">Google Cloud &nbsp;&#183;&nbsp; Associate &nbsp;&#183;&nbsp; Active</div>
+                            <div class="cert-skills">
+                                <span class="cert-skill">Compute Engine</span>
+                                <span class="cert-skill">BigQuery</span>
+                                <span class="cert-skill">Cloud Storage</span>
+                                <span class="cert-skill">GKE</span>
+                                <span class="cert-skill">IAM &amp; Billing</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="cert-card azure">
+                    <div class="cert-accent"></div>
+                    <div class="cert-body">
+                        <div class="cert-logo">
+                            <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
+                                <path d="M14 62l22-46 12 22-10 12h18" stroke="#0078D4" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M36 38l14 24H14" stroke="#50e6ff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <div class="cert-info">
+                            <div class="cert-top-row">
+                                <div class="cert-name">Azure Data Scientist Associate</div>
+                                <div class="cert-verified">&#10003; MSFT</div>
+                            </div>
+                            <div class="cert-issuer">Microsoft Certified &nbsp;&#183;&nbsp; Associate &nbsp;&#183;&nbsp; DP-100</div>
+                            <div class="cert-skills">
+                                <span class="cert-skill">Azure ML Studio</span>
+                                <span class="cert-skill">AutoML</span>
+                                <span class="cert-skill">MLflow on Azure</span>
+                                <span class="cert-skill">Responsible AI</span>
+                                <span class="cert-skill">Model Deployment</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ── ROW 3: Badges ── -->
+            <div class="cert-section-label">// KNOWLEDGE BADGES &amp; SPECIALIZATIONS</div>
+            <div class="cert-badges-row">
+
+                <div class="cert-card azure cert-badge-card">
+                    <div class="cert-accent"></div>
+                    <div class="cert-body">
+                        <div class="cert-logo">&#128196;</div>
+                        <div class="cert-info">
+                            <div class="cert-top-row">
+                                <div class="cert-name">Azure Cosmos DB Developer</div>
+                                <div class="cert-verified">&#10003; MSFT</div>
+                            </div>
+                            <div class="cert-issuer">Microsoft Certified &nbsp;&#183;&nbsp; DP-420</div>
+                            <div class="cert-skills">
+                                <span class="cert-skill">Cosmos DB</span>
+                                <span class="cert-skill">NoSQL</span>
+                                <span class="cert-skill">Partitioning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cert-card databricks cert-badge-card">
+                    <div class="cert-accent"></div>
+                    <div class="cert-body">
+                        <div class="cert-logo">&#9889;</div>
+                        <div class="cert-info">
+                            <div class="cert-top-row">
+                                <div class="cert-name">Generative AI Fundamentals</div>
+                                <div class="cert-verified">&#10003; BADGE</div>
+                            </div>
+                            <div class="cert-issuer">Databricks &nbsp;&#183;&nbsp; Accredited Badge</div>
+                            <div class="cert-skills">
+                                <span class="cert-skill">LLMs</span>
+                                <span class="cert-skill">RAG</span>
+                                <span class="cert-skill">Fine-Tuning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cert-card cloudera cert-badge-card">
+                    <div class="cert-accent"></div>
+                    <div class="cert-body">
+                        <div class="cert-logo">&#128279;</div>
+                        <div class="cert-info">
+                            <div class="cert-top-row">
+                                <div class="cert-name">LangChain: Chat with Your Data</div>
+                                <div class="cert-verified">&#10003; BADGE</div>
+                            </div>
+                            <div class="cert-issuer">Cloudera / DeepLearning.AI</div>
+                            <div class="cert-skills">
+                                <span class="cert-skill">LangChain</span>
+                                <span class="cert-skill">RAG</span>
+                                <span class="cert-skill">Vector DB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </div>
@@ -1685,9 +1844,9 @@
                     <span class="hire-contact-val">abhishek-donekal</span>
                     <span class="hire-contact-arrow">&#8599; View Code</span>
                 </a>
-                <a href="mailto:" class="hire-contact-item">
+                <a href="mailto:adonekal@gmail.com" class="hire-contact-item">
                     <span class="hire-contact-type">// EMAIL</span>
-                    <span class="hire-contact-val">Drop a message</span>
+                    <span class="hire-contact-val">adonekal@gmail.com</span>
                     <span class="hire-contact-arrow">&#8599; Send Mail</span>
                 </a>
             </div>
