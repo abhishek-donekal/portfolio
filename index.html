@@ -826,21 +826,30 @@
         .cert-badge-card .cert-body { padding: 1rem 1.25rem; gap: 1rem; }
 
         .cert-logo {
-            width: 60px; height: 60px;
-            border-radius: 12px;
+            width: 88px; height: 88px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
             font-size: 1.8rem;
+            overflow: hidden;
+            padding: 4px;
+            box-sizing: border-box;
         }
-        .cert-badge-card .cert-logo { width: 48px; height: 48px; font-size: 1.5rem; border-radius: 10px; }
+        .cert-logo img {
+            width: 100%; height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+            display: block;
+        }
+        .cert-badge-card .cert-logo { width: 72px; height: 72px; font-size: 1.5rem; border-radius: 12px; padding: 3px; }
 
-        .cert-card.aws .cert-logo        { background:rgba(255,153,0,0.12);  border:1px solid rgba(255,153,0,0.25); }
-        .cert-card.gcp .cert-logo        { background:rgba(66,133,244,0.12); border:1px solid rgba(66,133,244,0.25); }
-        .cert-card.azure .cert-logo      { background:rgba(0,120,212,0.12);  border:1px solid rgba(0,120,212,0.25); }
-        .cert-card.databricks .cert-logo { background:rgba(255,54,33,0.1);   border:1px solid rgba(255,54,33,0.2); }
-        .cert-card.cloudera .cert-logo   { background:rgba(0,167,160,0.1);   border:1px solid rgba(0,167,160,0.2); }
+        .cert-card.aws .cert-logo        { background:rgba(255,153,0,0.08);  border:1px solid rgba(255,153,0,0.3); }
+        .cert-card.gcp .cert-logo        { background:rgba(66,133,244,0.08); border:1px solid rgba(66,133,244,0.3); }
+        .cert-card.azure .cert-logo      { background:rgba(0,120,212,0.08);  border:1px solid rgba(0,120,212,0.3); }
+        .cert-card.databricks .cert-logo { background:rgba(255,54,33,0.07);  border:1px solid rgba(255,54,33,0.25); }
+        .cert-card.cloudera .cert-logo   { background:rgba(0,167,160,0.07);  border:1px solid rgba(0,167,160,0.25); }
 
         .cert-info { flex: 1; min-width: 0; }
 
@@ -1153,7 +1162,7 @@
             .hero-stats { gap: 1rem; }
             .section { padding: 4rem 1.2rem; }
             .cert-body { flex-direction: column; }
-            .cert-logo { width: 52px; height: 52px; }
+            .cert-logo { width: 64px; height: 64px; padding: 3px; }
             .hire-banner { flex-direction: column; }
         }
     </style>
@@ -1597,13 +1606,7 @@
                     <div class="cert-accent"></div>
                     <div class="cert-body">
                         <div class="cert-logo">
-                            <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
-                                <path d="M22 48c0 3.3 8 6 18 6s18-2.7 18-6" stroke="#FF9900" stroke-width="3" fill="none" stroke-linecap="round"/>
-                                <path d="M22 40v8c0 3.3 8 6 18 6s18-2.7 18-6v-8" stroke="#FF9900" stroke-width="3" fill="none" stroke-linecap="round"/>
-                                <ellipse cx="40" cy="40" rx="18" ry="6" fill="#FF9900" opacity="0.85"/>
-                                <path d="M52 34l6 6-6 6" stroke="#FF9900" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                                <path d="M28 34l-6 6 6 6" stroke="#FF9900" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                            </svg>
+                            <img src="https://images.credly.com/size/340x340/images/f0d3fbb9-bfa7-4017-9989-7bde8eaf42b1/image.png" alt="AWS Certified SysOps Administrator Associate badge" />
                         </div>
                         <div class="cert-info">
                             <div class="cert-top-row">
@@ -1627,13 +1630,7 @@
                     <div class="cert-accent"></div>
                     <div class="cert-body">
                         <div class="cert-logo">
-                            <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
-                                <path d="M40 14l17 10v20l-17 10-17-10V24z" fill="#4285F4" opacity="0.15" stroke="#4285F4" stroke-width="2"/>
-                                <circle cx="40" cy="36" r="10" fill="none" stroke="#4285F4" stroke-width="2.5"/>
-                                <circle cx="40" cy="36" r="4" fill="#4285F4"/>
-                                <path d="M40 26v4M40 42v4M30 36h4M46 36h4" stroke="#EA4335" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M34 30l2 2M44 40l2 2M34 42l2-2M44 32l2-2" stroke="#34A853" stroke-width="1.5" stroke-linecap="round"/>
-                            </svg>
+                            <img src="https://images.credly.com/size/340x340/images/33f08b7e-fa6a-41cd-810a-21cc1c336f6d/image.png" alt="Google Cloud Professional DevOps Engineer badge" />
                         </div>
                         <div class="cert-info">
                             <div class="cert-top-row">
@@ -1662,11 +1659,7 @@
                     <div class="cert-accent"></div>
                     <div class="cert-body">
                         <div class="cert-logo">
-                            <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
-                                <path d="M40 18l22 12v24l-22 12-22-12V30z" fill="#34A853" opacity="0.12" stroke="#34A853" stroke-width="2"/>
-                                <path d="M28 38h24M40 26v24" stroke="#4285F4" stroke-width="2.5" stroke-linecap="round"/>
-                                <circle cx="40" cy="38" r="6" fill="#FBBC04" opacity="0.8"/>
-                            </svg>
+                            <img src="https://images.credly.com/size/340x340/images/08096465-cbfc-4c3e-93e5-93c5aa61f23e/image.png" alt="Google Cloud Associate Cloud Engineer badge" />
                         </div>
                         <div class="cert-info">
                             <div class="cert-top-row">
@@ -1689,10 +1682,7 @@
                     <div class="cert-accent"></div>
                     <div class="cert-body">
                         <div class="cert-logo">
-                            <svg width="36" height="36" viewBox="0 0 80 80" fill="none">
-                                <path d="M14 62l22-46 12 22-10 12h18" stroke="#0078D4" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M36 38l14 24H14" stroke="#50e6ff" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
+                            <img src="https://images.credly.com/size/340x340/images/5c8fca38-b0d2-49e5-9ad2-f3f8e79b327f/azure-data-scientist-associate-600x600.png" alt="Microsoft Certified Azure Data Scientist Associate badge" />
                         </div>
                         <div class="cert-info">
                             <div class="cert-top-row">
@@ -1720,7 +1710,9 @@
                 <div class="cert-card azure cert-badge-card">
                     <div class="cert-accent"></div>
                     <div class="cert-body">
-                        <div class="cert-logo">&#128196;</div>
+                        <div class="cert-logo">
+                            <img src="https://images.credly.com/size/340x340/images/515fa1dc-ac4a-4f08-ac73-6fd9694124cb/image.png" alt="Microsoft Certified Azure Cosmos DB Developer Specialty badge" />
+                        </div>
                         <div class="cert-info">
                             <div class="cert-top-row">
                                 <div class="cert-name">Azure Cosmos DB Developer</div>
@@ -1739,7 +1731,9 @@
                 <div class="cert-card databricks cert-badge-card">
                     <div class="cert-accent"></div>
                     <div class="cert-body">
-                        <div class="cert-logo">&#9889;</div>
+                        <div class="cert-logo">
+                            <img src="https://templates.images.credential.net/17582016259615109453927759079417.png" alt="Databricks Generative AI Fundamentals Accreditation badge" />
+                        </div>
                         <div class="cert-info">
                             <div class="cert-top-row">
                                 <div class="cert-name">Generative AI Fundamentals</div>
@@ -1758,7 +1752,16 @@
                 <div class="cert-card cloudera cert-badge-card">
                     <div class="cert-accent"></div>
                     <div class="cert-body">
-                        <div class="cert-logo">&#128279;</div>
+                        <div class="cert-logo">
+                            <svg width="44" height="44" viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="40" r="36" fill="rgba(0,167,160,0.12)" stroke="#00A7A0" stroke-width="1.5"/>
+                                <rect x="18" y="33" width="18" height="14" rx="7" fill="none" stroke="#00D4CC" stroke-width="3"/>
+                                <rect x="44" y="33" width="18" height="14" rx="7" fill="none" stroke="#00D4CC" stroke-width="3"/>
+                                <line x1="36" y1="40" x2="44" y2="40" stroke="#00D4CC" stroke-width="3" stroke-linecap="round"/>
+                                <circle cx="40" cy="23" r="5" fill="#00A7A0" opacity="0.7"/>
+                                <circle cx="40" cy="57" r="5" fill="#00A7A0" opacity="0.7"/>
+                            </svg>
+                        </div>
                         <div class="cert-info">
                             <div class="cert-top-row">
                                 <div class="cert-name">LangChain: Chat with Your Data</div>
