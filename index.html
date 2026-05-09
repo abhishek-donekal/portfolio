@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abhishek Donekal | AI Agents Implementation Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --g: #00ff88;
-            --b: #00d4ff;
-            --p: #bf00ff;
-            --dark: #020408;
-            --card: rgba(0,255,136,0.03);
-            --border: rgba(0,255,136,0.15);
+            --g: #818cf8;
+            --b: #a5b4fc;
+            --p: #c4b5fd;
+            --dark: #09090f;
+            --card: rgba(255,255,255,0.03);
+            --border: rgba(255,255,255,0.08);
         }
 
         * { margin:0; padding:0; box-sizing:border-box; }
@@ -20,9 +20,9 @@
         html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Rajdhani', sans-serif;
+            font-family: 'Inter', sans-serif;
             background: var(--dark);
-            color: #e0ffe8;
+            color: #e2e8f0;
             overflow-x: hidden;
         }
 
@@ -43,16 +43,16 @@
             justify-content: space-between;
             background: rgba(2,4,8,0.7);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0,255,136,0.1);
+            border-bottom: 1px solid rgba(99,102,241,0.1);
         }
 
         .nav-logo {
-            font-family: 'Orbitron', monospace;
-            font-size: 0.85rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.95rem;
             font-weight: 700;
-            color: var(--g);
-            letter-spacing: 2px;
-            text-shadow: 0 0 20px rgba(0,255,136,0.6);
+            color: #fff;
+            letter-spacing: 0;
+            text-shadow: none;
         }
 
         .nav-links {
@@ -62,9 +62,9 @@
         }
 
         .nav-links a {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.72rem;
-            color: rgba(0,255,136,0.5);
+            color: rgba(99,102,241,0.5);
             text-decoration: none;
             letter-spacing: 1.5px;
             transition: all 0.3s;
@@ -77,7 +77,7 @@
             transition: opacity 0.3s;
         }
 
-        .nav-links a:hover { color: var(--g); text-shadow: 0 0 12px var(--g); }
+        .nav-links a:hover { color: #fff; text-shadow: none; }
         .nav-links a:hover::before { opacity: 1; }
 
         /* ── HERO ── */
@@ -117,7 +117,7 @@
         }
 
         .hero-tag {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
             color: var(--b);
             letter-spacing: 4px;
@@ -129,35 +129,31 @@
         .hero-tag::after  { content: ' ]'; }
 
         .hero-name {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: clamp(2.4rem, 6vw, 5rem);
             font-weight: 900;
             line-height: 1.05;
             margin-bottom: 0.5rem;
-            background: linear-gradient(135deg, #fff 0%, var(--g) 50%, var(--b) 100%);
+            background: linear-gradient(135deg, #fff 0%, var(--b) 60%, var(--g) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 30px rgba(0,255,136,0.4));
-            animation: glitch 6s infinite;
+            filter: none;
+            animation: none;
         }
 
         @keyframes glitch {
-            0%,95%,100% { clip-path: none; transform: none; }
-            96%   { clip-path: polygon(0 20%, 100% 20%, 100% 25%, 0 25%); transform: translate(-3px, 0); }
-            96.5% { clip-path: polygon(0 60%, 100% 60%, 100% 65%, 0 65%); transform: translate(3px, 0); }
-            97%   { clip-path: polygon(0 40%, 100% 40%, 100% 42%, 0 42%); transform: translate(-2px, 0); }
-            97.5% { clip-path: none; transform: none; }
+            0%,100% { opacity: 1; }
         }
 
         .hero-role {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: clamp(0.75rem, 2vw, 1.05rem);
             font-weight: 400;
-            color: var(--g);
+            color: var(--b);
             letter-spacing: 3px;
             min-height: 1.8rem;
             margin-bottom: 2.5rem;
-            text-shadow: 0 0 20px rgba(0,255,136,0.7);
+            text-shadow: none;
         }
 
         .cursor {
@@ -184,35 +180,30 @@
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 0.8rem 1.5rem;
-            background: rgba(0,255,136,0.03);
+            background: rgba(99,102,241,0.03);
             backdrop-filter: blur(10px);
             position: relative;
             overflow: hidden;
         }
 
         .stat::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: conic-gradient(transparent 340deg, rgba(0,255,136,0.15) 360deg);
-            animation: spin 4s linear infinite;
+            content: none;
         }
 
         @keyframes spin { to { transform: rotate(360deg); } }
 
         .stat-num {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 1.6rem;
-            font-weight: 900;
-            color: var(--g);
-            text-shadow: 0 0 20px var(--g);
+            font-weight: 800;
+            color: #fff;
+            text-shadow: none;
             position: relative;
         }
 
         .stat-label {
             font-size: 0.7rem;
-            color: rgba(0,255,136,0.5);
+            color: rgba(99,102,241,0.5);
             letter-spacing: 2px;
             position: relative;
         }
@@ -225,7 +216,7 @@
 
         .btn-neon {
             padding: 0.7rem 2rem;
-            font-family: 'Orbitron', monospace;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.75rem;
             font-weight: 700;
             letter-spacing: 2px;
@@ -237,8 +228,8 @@
         }
 
         .btn-neon-primary {
-            background: var(--g);
-            color: #020408;
+            background: #6366f1;
+            color: #fff;
             border: none;
         }
 
@@ -252,17 +243,18 @@
         }
 
         .btn-neon-primary:hover::after { transform: translateX(100%); }
-        .btn-neon-primary:hover { box-shadow: 0 0 30px rgba(0,255,136,0.7), 0 0 60px rgba(0,255,136,0.3); transform: translateY(-2px); }
+        .btn-neon-primary:hover { box-shadow: 0 8px 24px rgba(99,102,241,0.4); transform: translateY(-2px); background: #4f46e5; }
 
         .btn-neon-outline {
             background: transparent;
-            color: var(--g);
-            border: 1px solid var(--g);
+            color: rgba(255,255,255,0.75);
+            border: 1px solid rgba(255,255,255,0.15);
         }
 
         .btn-neon-outline:hover {
-            background: rgba(0,255,136,0.1);
-            box-shadow: 0 0 20px rgba(0,255,136,0.3);
+            background: rgba(255,255,255,0.06);
+            border-color: rgba(255,255,255,0.3);
+            color: #fff;
             transform: translateY(-2px);
         }
 
@@ -277,16 +269,16 @@
             flex-direction: column;
             align-items: center;
             gap: 0.4rem;
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.65rem;
-            color: rgba(0,255,136,0.4);
+            color: rgba(99,102,241,0.4);
             letter-spacing: 2px;
         }
 
         .scroll-arrow {
             width: 20px; height: 20px;
-            border-right: 1px solid rgba(0,255,136,0.4);
-            border-bottom: 1px solid rgba(0,255,136,0.4);
+            border-right: 1px solid rgba(99,102,241,0.4);
+            border-bottom: 1px solid rgba(99,102,241,0.4);
             transform: rotate(45deg);
             animation: bounce 1.5s ease infinite;
         }
@@ -308,14 +300,14 @@
         }
 
         .section-num {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
             color: var(--g);
             opacity: 0.5;
         }
 
         .section-title {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: clamp(1.3rem, 3vw, 1.8rem);
             font-weight: 700;
             color: #fff;
@@ -341,11 +333,11 @@
             border: 1px solid var(--border);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 0 40px rgba(0,255,136,0.05);
+            box-shadow: 0 0 40px rgba(99,102,241,0.05);
         }
 
         .terminal-bar {
-            background: rgba(0,255,136,0.06);
+            background: rgba(99,102,241,0.06);
             border-bottom: 1px solid var(--border);
             padding: 0.7rem 1rem;
             display: flex;
@@ -359,25 +351,25 @@
         .t-grn   { background: var(--g); }
 
         .terminal-title {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.65rem;
-            color: rgba(0,255,136,0.4);
+            color: rgba(99,102,241,0.4);
             margin-left: auto;
             letter-spacing: 1px;
         }
 
         .terminal-body {
             padding: 1.5rem;
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.78rem;
             line-height: 2;
-            color: rgba(0,255,136,0.85);
+            color: #e2e8f0;
         }
 
-        .t-prompt { color: rgba(0,212,255,0.6); }
-        .t-cmd    { color: rgba(0,255,136,0.9); }
-        .t-out    { color: rgba(255,255,255,0.6); padding-left: 1.5rem; }
-        .t-comment { color: rgba(0,255,136,0.25); }
+        .t-prompt { color: #818cf8; }
+        .t-cmd    { color: #a5f3fc; }
+        .t-out    { color: rgba(255,255,255,0.55); padding-left: 1.5rem; }
+        .t-comment { color: rgba(255,255,255,0.2); }
 
         .about-text-block {
             display: flex;
@@ -404,17 +396,17 @@
 
         .chip {
             padding: 0.3rem 0.9rem;
-            border: 1px solid rgba(0,212,255,0.2);
+            border: 1px solid rgba(148,163,184,0.2);
             border-radius: 50px;
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.7rem;
             color: var(--b);
-            background: rgba(0,212,255,0.04);
+            background: rgba(148,163,184,0.04);
         }
 
         /* ── AGENT NETWORK ── */
         #agent-section {
-            background: rgba(0,255,136,0.015);
+            background: rgba(99,102,241,0.025);
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
         }
@@ -441,16 +433,16 @@
             position: absolute;
             inset: 0;
             background: linear-gradient(135deg,
-                rgba(0,255,136,0.05) 0%,
+                rgba(99,102,241,0.05) 0%,
                 transparent 60%);
             opacity: 0;
             transition: opacity 0.4s;
         }
 
         .agent-card:hover {
-            border-color: rgba(0,255,136,0.5);
+            border-color: rgba(99,102,241,0.5);
             transform: translateY(-6px);
-            box-shadow: 0 20px 50px rgba(0,255,136,0.1), 0 0 0 1px rgba(0,255,136,0.2);
+            box-shadow: 0 20px 50px rgba(99,102,241,0.1), 0 0 0 1px rgba(99,102,241,0.2);
         }
 
         .agent-card:hover::before { opacity: 1; }
@@ -478,26 +470,18 @@
             justify-content: center;
             font-size: 1.6rem;
             margin-bottom: 1.2rem;
-            background: rgba(0,255,136,0.03);
+            background: rgba(99,102,241,0.03);
             position: relative;
         }
 
         .agent-icon-wrap::after {
-            content: '';
-            position: absolute;
-            inset: -1px;
-            border-radius: 14px;
-            background: conic-gradient(var(--g) 0deg, transparent 90deg, var(--b) 180deg, transparent 270deg);
-            opacity: 0;
-            transition: opacity 0.4s;
-            z-index: -1;
-            animation: spin 3s linear infinite;
+            content: none;
         }
 
-        .agent-card:hover .agent-icon-wrap::after { opacity: 0.6; }
+        .agent-card:hover .agent-icon-wrap::after { opacity: 0; }
 
         .agent-name {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.85rem;
             font-weight: 700;
             color: #fff;
@@ -519,19 +503,19 @@
         }
 
         .atag {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.65rem;
             padding: 0.2rem 0.55rem;
             border-radius: 4px;
-            border: 1px solid rgba(0,255,136,0.2);
+            border: 1px solid rgba(99,102,241,0.2);
             color: var(--g);
-            background: rgba(0,255,136,0.04);
+            background: rgba(99,102,241,0.04);
         }
 
         .atag.cyan {
-            border-color: rgba(0,212,255,0.2);
+            border-color: rgba(148,163,184,0.2);
             color: var(--b);
-            background: rgba(0,212,255,0.04);
+            background: rgba(148,163,184,0.04);
         }
 
         .atag.purple {
@@ -548,7 +532,7 @@
         }
 
         .skill-category-title {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.72rem;
             color: var(--b);
             letter-spacing: 3px;
@@ -569,7 +553,7 @@
         }
 
         .skill-bar-name { color: rgba(255,255,255,0.8); }
-        .skill-bar-pct  { font-family: 'Fira Code', monospace; font-size: 0.72rem; color: var(--g); }
+        .skill-bar-pct  { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--g); }
 
         .skill-bar-track {
             height: 4px;
@@ -581,10 +565,10 @@
         .skill-bar-fill {
             height: 100%;
             border-radius: 2px;
-            background: linear-gradient(90deg, var(--g), var(--b));
+            background: linear-gradient(90deg, #6366f1, #818cf8);
             width: 0;
             transition: width 1.2s cubic-bezier(0.25, 1, 0.5, 1);
-            box-shadow: 0 0 8px rgba(0,255,136,0.5);
+            box-shadow: none;
         }
 
         .tools-grid {
@@ -598,10 +582,10 @@
             border: 1px solid var(--border);
             border-radius: 8px;
             text-align: center;
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.65rem;
-            color: rgba(0,255,136,0.7);
-            background: rgba(0,255,136,0.02);
+            color: rgba(99,102,241,0.7);
+            background: rgba(99,102,241,0.02);
             transition: all 0.3s;
             letter-spacing: 0.5px;
         }
@@ -609,8 +593,8 @@
         .tool-pill:hover {
             border-color: var(--g);
             color: var(--g);
-            background: rgba(0,255,136,0.07);
-            box-shadow: 0 0 12px rgba(0,255,136,0.15);
+            background: rgba(99,102,241,0.07);
+            box-shadow: 0 0 12px rgba(99,102,241,0.15);
             transform: translateY(-2px);
         }
 
@@ -636,14 +620,14 @@
         .p-live-badge {
             position: absolute;
             top: 12px; right: 12px;
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.6rem;
             letter-spacing: 1.5px;
             padding: 0.18rem 0.55rem;
             border-radius: 50px;
-            background: rgba(0,255,136,0.12);
+            background: rgba(99,102,241,0.12);
             color: var(--g);
-            border: 1px solid rgba(0,255,136,0.35);
+            border: 1px solid rgba(99,102,241,0.35);
         }
 
         .p-links {
@@ -656,7 +640,7 @@
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.65rem;
             padding: 0.28rem 0.7rem;
             border-radius: 6px;
@@ -677,15 +661,15 @@
         }
 
         .p-link-live {
-            border: 1px solid rgba(0,255,136,0.3);
+            border: 1px solid rgba(99,102,241,0.3);
             color: var(--g);
-            background: rgba(0,255,136,0.04);
+            background: rgba(99,102,241,0.04);
         }
 
         .p-link-live:hover {
-            background: rgba(0,255,136,0.12);
+            background: rgba(99,102,241,0.12);
             border-color: var(--g);
-            box-shadow: 0 0 12px rgba(0,255,136,0.2);
+            box-shadow: 0 0 12px rgba(99,102,241,0.2);
         }
 
         /* holographic shimmer */
@@ -697,7 +681,7 @@
             height: 100%;
             background: linear-gradient(105deg,
                 transparent 40%,
-                rgba(0,255,136,0.06) 50%,
+                rgba(99,102,241,0.06) 50%,
                 transparent 60%);
             transition: left 0.6s;
         }
@@ -705,9 +689,9 @@
         .project-card:hover::before { left: 150%; }
 
         .project-card:hover {
-            border-color: rgba(0,255,136,0.45);
+            border-color: rgba(99,102,241,0.45);
             transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,255,136,0.15), 0 0 40px rgba(0,255,136,0.06);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(99,102,241,0.15), 0 0 40px rgba(99,102,241,0.06);
         }
 
         .p-icon {
@@ -717,7 +701,7 @@
         }
 
         .p-name {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.82rem;
             font-weight: 700;
             color: #fff;
@@ -740,19 +724,19 @@
         }
 
         .p-tag {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.62rem;
             padding: 0.18rem 0.5rem;
             border-radius: 4px;
-            border: 1px solid rgba(0,212,255,0.2);
+            border: 1px solid rgba(148,163,184,0.2);
             color: var(--b);
-            background: rgba(0,212,255,0.04);
+            background: rgba(148,163,184,0.04);
         }
 
         .p-tag.green {
-            border-color: rgba(0,255,136,0.2);
+            border-color: rgba(99,102,241,0.2);
             color: var(--g);
-            background: rgba(0,255,136,0.04);
+            background: rgba(99,102,241,0.04);
         }
 
         .p-tag.purple {
@@ -781,9 +765,9 @@
         }
 
         .cert-section-label {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.65rem;
-            color: rgba(0,255,136,0.35);
+            color: rgba(99,102,241,0.35);
             letter-spacing: 3px;
             margin: 0.5rem 0 0.25rem;
         }
@@ -866,7 +850,7 @@
         }
 
         .cert-name {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 0.82rem;
             font-weight: 700;
             color: #fff;
@@ -876,7 +860,7 @@
         .cert-badge-card .cert-name { font-size: 0.75rem; }
 
         .cert-verified {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.58rem;
             letter-spacing: 1.5px;
             padding: 0.18rem 0.55rem;
@@ -892,7 +876,7 @@
         .cert-card.oracle .cert-verified     { color:#F04E37; background:rgba(199,70,52,0.08);  border:1px solid rgba(199,70,52,0.3);    }
 
         .cert-issuer {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.68rem;
             color: rgba(255,255,255,0.3);
             margin-bottom: 0.75rem;
@@ -902,7 +886,7 @@
         .cert-skills { display: flex; flex-wrap: wrap; gap: 0.35rem; }
 
         .cert-skill {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.6rem;
             padding: 0.18rem 0.5rem;
             border-radius: 4px;
@@ -916,7 +900,7 @@
 
         /* ── HIRE ME ── */
         .hire-wrap {
-            border: 1px solid rgba(0,255,136,0.2);
+            border: 1px solid rgba(99,102,241,0.2);
             border-radius: 20px;
             overflow: hidden;
             background: var(--card);
@@ -924,8 +908,8 @@
 
         .hire-banner {
             padding: 2.5rem 2.5rem 2rem;
-            background: linear-gradient(135deg, rgba(0,255,136,0.06) 0%, rgba(0,212,255,0.04) 100%);
-            border-bottom: 1px solid rgba(0,255,136,0.1);
+            background: linear-gradient(135deg, rgba(99,102,241,0.06) 0%, rgba(165,180,252,0.03) 100%);
+            border-bottom: 1px solid rgba(99,102,241,0.1);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -948,14 +932,14 @@
         }
 
         .hire-label {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.72rem;
             color: var(--g);
             letter-spacing: 2px;
         }
 
         .hire-title {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: clamp(1.2rem, 3vw, 1.8rem);
             font-weight: 900;
             color: #fff;
@@ -977,45 +961,45 @@
         }
 
         .hire-mode {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.7rem;
             padding: 0.3rem 0.9rem;
             border-radius: 50px;
-            border: 1px solid rgba(0,255,136,0.2);
-            color: rgba(0,255,136,0.7);
-            background: rgba(0,255,136,0.04);
+            border: 1px solid rgba(99,102,241,0.2);
+            color: rgba(99,102,241,0.7);
+            background: rgba(99,102,241,0.04);
         }
 
         .hire-ctas { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 
         .hire-cta-main {
             padding: 0.75rem 2rem;
-            font-family: 'Orbitron', monospace;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
             text-decoration: none;
-            border-radius: 6px;
-            background: linear-gradient(135deg, var(--g), var(--b));
-            color: #020408;
+            border-radius: 8px;
+            background: #6366f1;
+            color: #fff;
             transition: all 0.3s;
         }
-        .hire-cta-main:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,255,136,0.4); }
+        .hire-cta-main:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(99,102,241,0.4); background: #4f46e5; }
 
         .hire-cta-sec {
             padding: 0.75rem 1.5rem;
-            font-family: 'Orbitron', monospace;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 1.5px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
             text-decoration: none;
-            border-radius: 6px;
-            border: 1px solid rgba(0,255,136,0.35);
-            color: var(--g);
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.75);
             background: transparent;
             transition: all 0.3s;
         }
-        .hire-cta-sec:hover { background: rgba(0,255,136,0.08); }
+        .hire-cta-sec:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.3); color: #fff; }
 
         .hire-contact-grid {
             display: grid;
@@ -1025,7 +1009,7 @@
 
         .hire-contact-item {
             padding: 1.5rem 2rem;
-            border-right: 1px solid rgba(0,255,136,0.08);
+            border-right: 1px solid rgba(99,102,241,0.08);
             display: flex;
             flex-direction: column;
             gap: 0.4rem;
@@ -1033,12 +1017,12 @@
             text-decoration: none;
         }
         .hire-contact-item:last-child { border-right: none; }
-        .hire-contact-item:hover { background: rgba(0,255,136,0.03); }
+        .hire-contact-item:hover { background: rgba(99,102,241,0.03); }
 
         .hire-contact-type {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.62rem;
-            color: rgba(0,255,136,0.4);
+            color: rgba(99,102,241,0.4);
             letter-spacing: 2px;
         }
 
@@ -1074,7 +1058,7 @@
             gap: 0.8rem;
             font-size: 0.85rem;
             color: rgba(255,255,255,0.5);
-            background: rgba(0,255,136,0.01);
+            background: rgba(99,102,241,0.01);
             transition: all 0.3s;
             font-weight: 500;
         }
@@ -1088,9 +1072,9 @@
         }
 
         .service-item:hover {
-            border-color: rgba(0,212,255,0.3);
+            border-color: rgba(148,163,184,0.3);
             color: var(--b);
-            background: rgba(0,212,255,0.03);
+            background: rgba(148,163,184,0.03);
         }
 
         /* ── FOOTER ── */
@@ -1101,13 +1085,13 @@
         }
 
         .footer-logo {
-            font-family: 'Orbitron', monospace;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             font-size: 1rem;
-            font-weight: 900;
-            color: var(--g);
-            text-shadow: 0 0 20px rgba(0,255,136,0.5);
+            font-weight: 700;
+            color: #fff;
+            text-shadow: none;
             margin-bottom: 1rem;
-            letter-spacing: 3px;
+            letter-spacing: 1px;
         }
 
         .footer-links {
@@ -1118,20 +1102,20 @@
         }
 
         .footer-links a {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.72rem;
-            color: rgba(0,255,136,0.45);
+            color: rgba(99,102,241,0.45);
             text-decoration: none;
             letter-spacing: 1px;
             transition: all 0.3s;
         }
 
-        .footer-links a:hover { color: var(--g); text-shadow: 0 0 10px var(--g); }
+        .footer-links a:hover { color: #fff; text-shadow: none; }
 
         .footer-copy {
-            font-family: 'Fira Code', monospace;
+            font-family: 'JetBrains Mono', monospace;
             font-size: 0.65rem;
-            color: rgba(0,255,136,0.2);
+            color: rgba(99,102,241,0.2);
             letter-spacing: 1px;
         }
 
@@ -1154,7 +1138,7 @@
             .cert-row-2, .cert-badges-row { grid-template-columns: 1fr; }
             .tools-grid { grid-template-columns: repeat(3, 1fr); }
             .hire-contact-grid { grid-template-columns: 1fr; }
-            .hire-contact-item { border-right: none; border-bottom: 1px solid rgba(0,255,136,0.08); }
+            .hire-contact-item { border-right: none; border-bottom: 1px solid rgba(99,102,241,0.08); }
             .hire-contact-item:last-child { border-bottom: none; }
             nav { padding: 0 1.5rem; }
             .nav-links { gap: 1.2rem; }
@@ -1176,7 +1160,7 @@
 
     <!-- NAV -->
     <nav>
-        <div class="nav-logo">AD // AGENT.ENG</div>
+        <div class="nav-logo">Abhishek Donekal</div>
         <ul class="nav-links">
             <li><a href="#about">about</a></li>
             <li><a href="#agents">agents</a></li>
@@ -1965,11 +1949,11 @@
                     const d  = Math.sqrt(dx*dx + dy*dy);
 
                     if(d < MAX_DIST){
-                        const alpha = (1 - d/MAX_DIST) * 0.55;
+                        const alpha = (1 - d/MAX_DIST) * 0.18;
                         // alternate color for hubs
                         const color = (ni.type === 'hub' || nj.type === 'hub')
-                            ? `rgba(0,212,255,${alpha * 0.8})`
-                            : `rgba(0,255,136,${alpha})`;
+                            ? `rgba(148,163,184,${alpha * 0.8})`
+                            : `rgba(99,102,241,${alpha})`;
 
                         ctx.beginPath();
                         ctx.strokeStyle = color;
@@ -1987,12 +1971,12 @@
                 const glow = Math.sin(n.phase) * 0.4 + 0.6;
 
                 const isHub = n.type === 'hub';
-                const baseColor = isHub ? '0,212,255' : '0,255,136';
+                const baseColor = isHub ? '165,180,252' : '99,102,241';
                 const r = isHub ? n.r * 1.5 : n.r;
 
                 // glow halo
                 const g = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, r * 5 * glow);
-                g.addColorStop(0, `rgba(${baseColor},${0.5 * glow})`);
+                g.addColorStop(0, `rgba(${baseColor},${0.18 * glow})`);
                 g.addColorStop(1, `rgba(${baseColor},0)`);
                 ctx.beginPath();
                 ctx.fillStyle = g;
