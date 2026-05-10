@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { SITE } from "@/lib/constants";
+import profileAvatar from "@/public/profile.png";
 
 const initials = SITE.name
   .split(/\s+/)
@@ -12,11 +14,11 @@ const initials = SITE.name
   .toUpperCase();
 
 /**
- * Plain <img> from `/public` avoids Next/Image edge cases when assets are optional.
- * Cyborg avatar art is composed center-weighted — neutral crop.
+ * Static import bundles the PNG into hashed `_next/static` output so production
+ * (Vercel) never misses `/public/profile.png` due to CDN cache or stale deploys.
  */
 export function ProfileOrb() {
-  const [showPhoto, setShowPhoto] = useState(true);
+  const [imageFailed, setImageFailed] = useState(false);
 
   return (
     <div className="relative mx-auto w-full max-w-[min(100%,380px)]">
@@ -51,14 +53,15 @@ export function ProfileOrb() {
           aria-hidden
         />
         <div className="relative h-full w-full overflow-hidden rounded-full border-2 border-emerald-400/65 bg-zinc-950 shadow-[0_0_56px_-14px_rgba(52,211,153,0.45)]">
-          {showPhoto ? (
-            // Optional local asset; <img> avoids Next/Image 404 edge cases in dev
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src="/profile.png"
+          {!imageFailed ? (
+            <Image
+              src={profileAvatar}
               alt={`${SITE.name} — AI engineer avatar`}
-              className="h-full w-full object-cover object-center"
-              onError={() => setShowPhoto(false)}
+              fill
+              priority
+              sizes="(max-width: 768px) 340px, 380px"
+              className="object-cover object-center"
+              onError={() => setImageFailed(true)}
             />
           ) : (
             <div className="flex h-full min-h-[260px] w-full items-center justify-center bg-gradient-to-br from-zinc-800 via-zinc-900 to-black md:min-h-[300px]">
