@@ -11,9 +11,11 @@ const initials = SITE.name
   .slice(0, 2)
   .toUpperCase();
 
+/** Full-body portrait → square crop: bias toward face (upper frame, slight horizontal tweak). */
+const PROFILE_OBJECT_POSITION = "56% 30%";
+
 /**
- * Uses a plain <img> for optional `/profile.jpg` so a missing file never trips
- * the Next/Image optimizer (which can break dev overlay error handling).
+ * Plain <img> from `/public` avoids Next/Image edge cases when assets are optional.
  */
 export function ProfileOrb() {
   const [showPhoto, setShowPhoto] = useState(true);
@@ -55,9 +57,10 @@ export function ProfileOrb() {
             // Optional local asset; <img> avoids Next/Image 404 edge cases in dev
             // eslint-disable-next-line @next/next/no-img-element
             <img
-              src="/profile.jpg"
+              src="/profile.png"
               alt={SITE.name}
-              className="h-full w-full object-cover"
+              className="h-full w-full scale-[1.08] object-cover"
+              style={{ objectPosition: PROFILE_OBJECT_POSITION }}
               onError={() => setShowPhoto(false)}
             />
           ) : (
