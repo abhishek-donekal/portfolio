@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --hero-vignette: rgba(5, 5, 5, 0.92);
+}
+
+html.custom-cursor {
+  cursor: none;
+}
+
+html.custom-cursor a,
+html.custom-cursor button {
+  cursor: none;
+}
+
+body {
+  @apply bg-midnight antialiased text-zinc-100;
+}
+
+::selection {
+  @apply bg-accent-violet/30 text-white;
+}
+
+:focus-visible {
+  @apply rounded outline outline-2 outline-offset-[3px] outline-accent-violet;
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-glass;
+  }
+
+  .glass-panel::before {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    opacity: 0.5;
+    background: radial-gradient(
+      ellipse 85% 55% at 15% -10%,
+      rgba(255, 255, 255, 0.06),
+      transparent 55%
+    );
+  }
+
+  .glass-inner {
+    @apply relative z-[1];
+  }
+
+  .scan-hover {
+    @apply relative overflow-hidden;
+  }
+
+  .scan-hover::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    background: linear-gradient(
+      transparent 0%,
+      rgba(34, 211, 238, 0.06) 45%,
+      rgba(34, 211, 238, 0.15) 50%,
+      rgba(34, 211, 238, 0.06) 55%,
+      transparent 100%
+    );
+    background-size: 100% 240%;
+    animation: scanline 2.8s linear infinite paused;
+  }
+
+  .scan-hover:hover::after {
+    opacity: 1;
+    animation-play-state: running;
+  }
+
+  /**
+   * Hero: deep charcoal + forest accent (professional / portfolio reference style).
+   */
+  .hero-backdrop {
+    background-color: #050806;
+    background-image:
+      radial-gradient(
+        ellipse 95% 70% at 45% -18%,
+        rgba(34, 197, 94, 0.11),
+        transparent 58%
+      ),
+      radial-gradient(
+        ellipse 55% 50% at 105% 88%,
+        rgba(16, 185, 129, 0.07),
+        transparent 54%
+      ),
+      radial-gradient(
+        ellipse 48% 42% at -8% 72%,
+        rgba(52, 211, 153, 0.06),
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse 40% 35% at 78% 22%,
+        rgba(34, 197, 94, 0.05),
+        transparent 46%
+      );
+  }
+
+  .hero-backdrop::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(74, 222, 128, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(74, 222, 128, 0.045) 1px, transparent 1px);
+    background-size: 92px 92px;
+    mask-image: radial-gradient(
+      ellipse 78% 65% at 48% 46%,
+      black 8%,
+      transparent 76%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse 78% 65% at 48% 46%,
+      black 8%,
+      transparent 76%
+    );
+    opacity: 0.5;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-backdrop::before {
+      opacity: 0.38;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .scan-hover::after {
+    animation: none !important;
+  }
+}
