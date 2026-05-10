@@ -9,17 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        midnight: "#050505",
+        midnight: "#050508",
         surface: {
-          DEFAULT: "#0a0a0c",
-          2: "#121216",
+          DEFAULT: "#0a0b10",
+          2: "#12131a",
         },
         accent: {
-          /** Primary accent — sky (no magenta/pink) */
-          violet: "#0ea5e9",
-          violetMuted: "#0284c7",
+          violet: "#8b5cf6",
+          violetMuted: "#7c3aed",
           cyan: "#22d3ee",
           cyanMuted: "#06b6d4",
+          emerald: "#34d399",
+          amber: "#fbbf24",
+          rose: "#fb7185",
         },
       },
       fontFamily: {
@@ -34,7 +36,12 @@ const config: Config = {
       },
       boxShadow: {
         glass: "inset 0 1px 0 0 rgba(255,255,255,0.06)",
-        glow: "0 0 40px -10px rgba(14,165,233,0.28)",
+        glow:
+          "0 0 48px -12px rgba(139,92,246,0.35), 0 0 32px -16px rgba(34,211,238,0.12)",
+      },
+      backgroundImage: {
+        "spectral-mesh":
+          "radial-gradient(ellipse 80% 52% at 18% -8%, rgba(52,211,153,0.14), transparent 52%), radial-gradient(ellipse 55% 48% at 82% 8%, rgba(139,92,246,0.12), transparent 50%), radial-gradient(ellipse 50% 42% at 70% 88%, rgba(34,211,238,0.1), transparent 48%), radial-gradient(ellipse 45% 40% at 8% 75%, rgba(251,146,60,0.08), transparent 46%)",
       },
       animation: {
         blink: "blink 1s step-end infinite",

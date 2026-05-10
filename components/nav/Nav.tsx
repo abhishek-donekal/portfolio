@@ -41,7 +41,7 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-[1000] flex h-[58px] items-center justify-between gap-4 border-b border-white/10 bg-[rgba(5,5,5,0.82)] px-6 backdrop-blur-xl md:px-10">
+    <header className="fixed left-0 right-0 top-0 z-[1000] flex h-[58px] items-center justify-between gap-4 border-b border-white/10 bg-[rgba(5,5,8,0.88)] px-6 shadow-[0_12px_40px_-20px_rgba(139,92,246,0.25),inset_0_-1px_0_0_rgba(34,211,238,0.12)] backdrop-blur-xl md:px-10">
       <div className="flex min-w-0 flex-1 items-center gap-4 md:gap-6">
         <a
           href="#hero"

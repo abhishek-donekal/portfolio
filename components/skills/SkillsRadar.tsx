@@ -31,10 +31,10 @@ export function SkillsRadar() {
           <Radar
             name="Proficiency"
             dataKey="value"
-            stroke="#0ea5e9"
-            strokeWidth={1.5}
-            fill="#0ea5e9"
-            fillOpacity={0.28}
+            stroke="#a78bfa"
+            strokeWidth={1.75}
+            fill="#8b5cf6"
+            fillOpacity={0.32}
           />
         </RadarChart>
       </ResponsiveContainer>
@@ -42,13 +42,21 @@ export function SkillsRadar() {
   );
 }
 
+const TOOL_RING = [
+  "hover:border-emerald-400/45 hover:bg-emerald-500/10 hover:text-emerald-200",
+  "hover:border-cyan-400/45 hover:bg-cyan-500/10 hover:text-cyan-200",
+  "hover:border-violet-400/45 hover:bg-violet-500/10 hover:text-violet-200",
+  "hover:border-amber-400/45 hover:bg-amber-500/10 hover:text-amber-200",
+  "hover:border-rose-400/45 hover:bg-rose-500/10 hover:text-rose-200",
+];
+
 export function ToolsStrip() {
   return (
     <div className="mt-10 flex flex-wrap justify-center gap-2 md:gap-2.5">
-      {TOOLS.map((t) => (
+      {TOOLS.map((t, i) => (
         <span
           key={t}
-          className="rounded-md border border-white/12 bg-white/[0.03] px-3 py-1.5 font-mono text-[0.72rem] font-medium text-zinc-400 transition hover:border-accent-violet/30 hover:text-zinc-200"
+          className={`rounded-md border border-white/12 bg-white/[0.03] px-3 py-1.5 font-mono text-[0.72rem] font-medium text-zinc-400 transition ${TOOL_RING[i % TOOL_RING.length]}`}
         >
           {t}
         </span>

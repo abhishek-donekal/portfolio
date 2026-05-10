@@ -3,9 +3,9 @@ import { CONTACT } from "@/lib/constants";
 
 export function Hire() {
   return (
-    <div className="glass-panel relative overflow-hidden rounded-2xl border-accent-violet/20 p-8 text-center md:p-12">
+    <div className="glass-panel relative overflow-hidden rounded-2xl border-violet-500/25 p-8 text-center shadow-[0_0_60px_-24px_rgba(167,139,250,0.35)] md:p-12">
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_-20%,rgba(14,165,233,0.12),transparent_55%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_58%_at_45%_-15%,rgba(167,139,250,0.15),transparent_52%),radial-gradient(ellipse_55%_50%_at_90%_100%,rgba(34,211,238,0.1),transparent_48%),radial-gradient(ellipse_40%_40%_at_10%_85%,rgba(251,191,36,0.08),transparent_45%)]"
         aria-hidden
       />
       <div className="relative z-[1] mx-auto max-w-2xl">

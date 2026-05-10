@@ -41,10 +41,10 @@ export default function RootLayout({
       lang="en"
       className={`custom-cursor ${GeistSans.variable} ${GeistMono.variable} ${jetbrains.variable} ${fraunces.variable}`}
     >
-      <body className={`min-h-screen font-sans ${GeistSans.className}`}>
+      <body className={`relative min-h-screen font-sans ${GeistSans.className}`}>
         <AsciiLog />
         <CustomCursor />
-        {children}
+        <div className="relative z-[1] min-h-screen">{children}</div>
       </body>
     </html>
   );

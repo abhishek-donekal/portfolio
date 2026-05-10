@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --hero-vignette: rgba(5, 5, 5, 0.92);
+  --hero-vignette: rgba(5, 5, 8, 0.92);
 }
 
 html.custom-cursor {
@@ -19,12 +19,36 @@ body {
   @apply bg-midnight antialiased text-zinc-100;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.95;
+  background-image: radial-gradient(
+      ellipse 120% 80% at 50% -20%,
+      rgba(139, 92, 246, 0.07),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse 70% 50% at 100% 50%,
+      rgba(34, 211, 238, 0.05),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse 60% 45% at 0% 60%,
+      rgba(251, 191, 36, 0.04),
+      transparent 45%
+    );
+}
+
 ::selection {
-  @apply bg-accent-violet/30 text-white;
+  @apply bg-violet-500/35 text-white;
 }
 
 :focus-visible {
-  @apply rounded outline outline-2 outline-offset-[3px] outline-accent-violet;
+  @apply rounded outline outline-2 outline-offset-[3px] outline-cyan-400;
 }
 
 @layer utilities {
@@ -38,12 +62,23 @@ body {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    opacity: 0.5;
-    background: radial-gradient(
-      ellipse 85% 55% at 15% -10%,
-      rgba(255, 255, 255, 0.06),
-      transparent 55%
-    );
+    opacity: 0.65;
+    background:
+      radial-gradient(
+        ellipse 70% 50% at 12% -5%,
+        rgba(167, 139, 250, 0.12),
+        transparent 52%
+      ),
+      radial-gradient(
+        ellipse 55% 42% at 92% 88%,
+        rgba(52, 211, 211, 0.1),
+        transparent 48%
+      ),
+      radial-gradient(
+        ellipse 40% 38% at 55% 50%,
+        rgba(251, 191, 36, 0.05),
+        transparent 42%
+      );
   }
 
   .glass-inner {
@@ -63,9 +98,9 @@ body {
     transition: opacity 0.35s ease;
     background: linear-gradient(
       transparent 0%,
-      rgba(34, 211, 238, 0.06) 45%,
-      rgba(34, 211, 238, 0.15) 50%,
-      rgba(34, 211, 238, 0.06) 55%,
+      rgba(34, 211, 238, 0.07) 40%,
+      rgba(167, 139, 250, 0.12) 50%,
+      rgba(251, 191, 36, 0.08) 60%,
       transparent 100%
     );
     background-size: 100% 240%;
@@ -78,29 +113,29 @@ body {
   }
 
   /**
-   * Hero: deep charcoal + forest accent (professional / portfolio reference style).
+   * Hero: multi-color ambient (emerald • violet • cyan • amber hints).
    */
   .hero-backdrop {
-    background-color: #050806;
+    background-color: #050508;
     background-image:
       radial-gradient(
-        ellipse 95% 70% at 45% -18%,
-        rgba(34, 197, 94, 0.11),
-        transparent 58%
-      ),
-      radial-gradient(
-        ellipse 55% 50% at 105% 88%,
-        rgba(16, 185, 129, 0.07),
+        ellipse 90% 65% at 40% -12%,
+        rgba(52, 211, 153, 0.14),
         transparent 54%
       ),
       radial-gradient(
-        ellipse 48% 42% at -8% 72%,
-        rgba(52, 211, 153, 0.06),
+        ellipse 50% 45% at 95% 20%,
+        rgba(167, 139, 250, 0.12),
         transparent 50%
       ),
       radial-gradient(
-        ellipse 40% 35% at 78% 22%,
-        rgba(34, 197, 94, 0.05),
+        ellipse 55% 48% at 75% 95%,
+        rgba(34, 211, 238, 0.1),
+        transparent 52%
+      ),
+      radial-gradient(
+        ellipse 45% 42% at 5% 70%,
+        rgba(251, 191, 36, 0.08),
         transparent 46%
       );
   }
@@ -110,9 +145,24 @@ body {
     position: absolute;
     inset: 0;
     background-image:
-      linear-gradient(rgba(74, 222, 128, 0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(74, 222, 128, 0.045) 1px, transparent 1px);
-    background-size: 92px 92px;
+      linear-gradient(
+        rgba(52, 211, 211, 0.04) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(167, 139, 250, 0.035) 1px,
+        transparent 1px
+      ),
+      linear-gradient(
+        rgba(251, 191, 36, 0.02) 1px,
+        transparent 1px
+      );
+    background-size: 96px 96px, 96px 96px, 288px 288px;
+    background-position:
+      0 0,
+      0 0,
+      12px 24px;
     mask-image: radial-gradient(
       ellipse 78% 65% at 48% 46%,
       black 8%,
@@ -123,12 +173,12 @@ body {
       black 8%,
       transparent 76%
     );
-    opacity: 0.5;
+    opacity: 0.55;
   }
 
   @media (prefers-reduced-motion: reduce) {
     .hero-backdrop::before {
-      opacity: 0.38;
+      opacity: 0.42;
     }
   }
 }

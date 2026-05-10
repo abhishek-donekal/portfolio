@@ -25,7 +25,7 @@ export default function Home() {
           className="scroll-mt-[72px] px-6 py-24 md:px-10"
         >
           <div className="mx-auto max-w-6xl">
-            <SectionTitle num="01" title="About" />
+            <SectionTitle num="01" title="About" accent="emerald" />
             <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14 lg:items-start">
               <AboutText />
               <AboutTerminal />
@@ -38,7 +38,7 @@ export default function Home() {
           className="scroll-mt-[72px] px-6 py-24 md:px-10"
         >
           <div className="mx-auto max-w-6xl">
-            <SectionTitle num="02" title="Agent capabilities" />
+            <SectionTitle num="02" title="Agent capabilities" accent="violet" />
             <AgentsGrid />
           </div>
         </SectionShell>
@@ -48,7 +48,7 @@ export default function Home() {
           className="scroll-mt-[72px] px-6 py-24 md:px-10"
         >
           <div className="mx-auto max-w-6xl">
-            <SectionTitle num="03" title="Skills & tools" />
+            <SectionTitle num="03" title="Skills & tools" accent="cyan" />
             <SkillsRadarDynamic />
             <ToolsStrip />
           </div>
@@ -59,7 +59,7 @@ export default function Home() {
           className="scroll-mt-[72px] px-6 py-24 md:px-10"
         >
           <div className="mx-auto max-w-6xl">
-            <SectionTitle num="04" title="Projects" />
+            <SectionTitle num="04" title="Projects" accent="amber" />
             <ProjectsGrid />
           </div>
         </SectionShell>
@@ -69,7 +69,7 @@ export default function Home() {
           className="scroll-mt-[72px] px-6 py-24 md:px-10"
         >
           <div className="mx-auto max-w-6xl">
-            <SectionTitle num="05" title="Certifications" />
+            <SectionTitle num="05" title="Certifications" accent="rose" />
             <Certifications />
           </div>
         </SectionShell>
@@ -79,7 +79,7 @@ export default function Home() {
           className="scroll-mt-[72px] px-6 py-24 md:px-10"
         >
           <div className="mx-auto max-w-6xl">
-            <SectionTitle num="06" title="Services" />
+            <SectionTitle num="06" title="Services" accent="sky" />
             <Services />
           </div>
         </SectionShell>
@@ -89,7 +89,7 @@ export default function Home() {
           className="scroll-mt-[72px] px-6 pb-28 pt-12 md:px-10"
         >
           <div className="mx-auto max-w-6xl">
-            <SectionTitle num="07" title="Hire me" />
+            <SectionTitle num="07" title="Hire me" accent="emerald" />
             <Hire />
           </div>
         </SectionShell>
