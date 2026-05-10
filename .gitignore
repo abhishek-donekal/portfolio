@@ -32,7 +32,7 @@ yarn-error.log*
 .env*.local
 
 # typescript
-next-env.d.ts
+# (keep next-env.d.ts tracked so installs / CI resolve Next + image types)
 
 # vercel
 .vercel

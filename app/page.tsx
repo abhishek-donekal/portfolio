@@ -4,7 +4,8 @@ import { SectionShell } from "@/components/ui/SectionShell";
 import { SectionTitle } from "@/components/ui/SectionTitle";
 import { AboutTerminal, AboutText } from "@/components/about/AboutTerminal";
 import { AgentsGrid } from "@/components/agents/AgentsGrid";
-import { SkillsRadar, ToolsStrip } from "@/components/skills/SkillsRadar";
+import { SkillsRadarDynamic } from "@/components/skills/SkillsRadarDynamic";
+import { ToolsStrip } from "@/components/skills/SkillsRadar";
 import { ProjectsGrid } from "@/components/projects/ProjectsGrid";
 import { Certifications } from "@/components/certifications/Certifications";
 import { Services } from "@/components/services/Services";
@@ -48,7 +49,7 @@ export default function Home() {
         >
           <div className="mx-auto max-w-6xl">
             <SectionTitle num="03" title="Skills & tools" />
-            <SkillsRadar />
+            <SkillsRadarDynamic />
             <ToolsStrip />
           </div>
         </SectionShell>
