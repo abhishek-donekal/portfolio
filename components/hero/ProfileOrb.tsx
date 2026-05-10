@@ -11,11 +11,9 @@ const initials = SITE.name
   .slice(0, 2)
   .toUpperCase();
 
-/** Full-body portrait → square crop: bias toward face (upper frame, slight horizontal tweak). */
-const PROFILE_OBJECT_POSITION = "56% 30%";
-
 /**
  * Plain <img> from `/public` avoids Next/Image edge cases when assets are optional.
+ * Cyborg avatar art is composed center-weighted — neutral crop.
  */
 export function ProfileOrb() {
   const [showPhoto, setShowPhoto] = useState(true);
@@ -58,9 +56,8 @@ export function ProfileOrb() {
             // eslint-disable-next-line @next/next/no-img-element
             <img
               src="/profile.png"
-              alt={SITE.name}
-              className="h-full w-full scale-[1.08] object-cover"
-              style={{ objectPosition: PROFILE_OBJECT_POSITION }}
+              alt={`${SITE.name} — AI engineer avatar`}
+              className="h-full w-full object-cover object-center"
               onError={() => setShowPhoto(false)}
             />
           ) : (
