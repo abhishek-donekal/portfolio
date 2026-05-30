@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail } from "lucide-react";
+import { FileImage, Github, Linkedin, Mail } from "lucide-react";
 import { CONTACT, SITE } from "@/lib/constants";
 
 const ASCII = `
@@ -57,6 +57,21 @@ export function Footer() {
             GitHub
           </a>
         </div>
+      </div>
+
+      <div className="mx-auto mt-10 flex max-w-5xl flex-col items-center gap-2 border-t border-white/5 pt-10 text-center">
+        <p className="text-[0.78rem] text-zinc-500">
+          Custom AI &amp; agent services — overview poster
+        </p>
+        <a
+          href="/ai-services-poster.png"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-[10px] border border-white/12 px-4 py-2 font-mono text-[0.78rem] text-zinc-400 transition hover:border-accent-cyan/40 hover:text-white"
+        >
+          <FileImage className="h-4 w-4 text-accent-cyan" strokeWidth={1.5} />
+          Open services poster (PNG)
+        </a>
       </div>
 
       <p className="mx-auto mt-10 max-w-5xl text-center font-mono text-[0.68rem] uppercase tracking-wider text-zinc-600">

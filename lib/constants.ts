@@ -144,6 +144,23 @@ export type ProjectItem = {
 
 export const PROJECTS: ProjectItem[] = [
   {
+    name: "WARDROPE",
+    desc: "AI-powered wardrobe cataloger and personal stylist — cross-platform React Native + Expo app with a FastAPI backend. Claude AI vision-tags clothing from photos, generates outfit combinations, and supports Stripe subscriptions. Full production QA audit and 33-issue bug fix sprint delivered.",
+    icon: "heart",
+    live: true,
+    tags: [
+      { label: "React Native", variant: "accent" },
+      { label: "FastAPI", variant: "default" },
+      { label: "Claude AI", variant: "violet" },
+      { label: "Expo", variant: "default" },
+      { label: "Stripe", variant: "default" },
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/abhishek-donekal/wardrope", variant: "github" },
+      { label: "Live Demo", href: "https://wardrope-red.vercel.app", variant: "live" },
+    ],
+  },
+  {
     name: "FUSIONFORGE",
     desc: "Full-stack TypeScript web app — modern SaaS-style site with component-driven architecture, deployed on Vercel.",
     icon: "zap",
