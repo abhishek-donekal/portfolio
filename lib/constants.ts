@@ -42,8 +42,8 @@ export const TYPEWRITER_LINES = [
 
 export const HERO_STATS = [
   { target: 5, label: "YEARS EXP" },
-  { target: 20, label: "AI PROJECTS" },
-  { target: 2, label: "CLOUD CERTS" },
+  { target: 10, label: "PROJECTS" },
+  { target: 7, label: "CLOUD CERTS" },
 ];
 
 export const ABOUT_PARAS = [
@@ -138,6 +138,10 @@ export type ProjectItem = {
   desc: string;
   icon: string;
   live?: boolean;
+  /** 0–100 completion estimate */
+  completion: number;
+  /** one-line status note shown next to the bar */
+  status?: string;
   tags: { label: string; variant: "default" | "accent" | "violet" }[];
   links: { label: string; href: string; variant: "github" | "live" }[];
 };
@@ -145,9 +149,11 @@ export type ProjectItem = {
 export const PROJECTS: ProjectItem[] = [
   {
     name: "WARDROPE",
-    desc: "AI-powered wardrobe cataloger and personal stylist — cross-platform React Native + Expo app with a FastAPI backend. Claude AI vision-tags clothing from photos, generates outfit combinations, and supports Stripe subscriptions. Full production QA audit and 33-issue bug fix sprint delivered.",
+    desc: "AI-powered wardrobe cataloger and personal stylist — cross-platform React Native + Expo app with a FastAPI backend. Claude AI vision-tags clothing from photos, generates outfit combinations, and supports Stripe subscriptions. Full production QA audit and 33-issue bug-fix sprint delivered.",
     icon: "heart",
     live: true,
+    completion: 88,
+    status: "Production · QA sprint complete · Stripe live",
     tags: [
       { label: "React Native", variant: "accent" },
       { label: "FastAPI", variant: "default" },
@@ -161,10 +167,68 @@ export const PROJECTS: ProjectItem[] = [
     ],
   },
   {
+    name: "HOME SERVER + DURYO AGENT",
+    desc: "Self-hosted homelab AI platform running 24/7 — nginx reverse proxy, n8n automation, local Ollama LLMs, and automated backups. DURYO Agent continuously monitors services, summarises incidents with AI, and fires alerts to keep the stack healthy.",
+    icon: "monitor",
+    completion: 95,
+    status: "Running in production on personal hardware",
+    tags: [
+      { label: "nginx", variant: "accent" },
+      { label: "n8n", variant: "accent" },
+      { label: "Ollama", variant: "default" },
+      { label: "AI Agent", variant: "violet" },
+    ],
+    links: [{ label: "GitHub", href: "https://github.com/abhishek-donekal", variant: "github" }],
+  },
+  {
+    name: "MIAMI HOUSING ML",
+    desc: "End-to-end ML study of Miami's housing market — curated datasets, feature engineering, regression and ensemble models, plus Jupyter notebooks and visualisations that surface market signals for non-technical stakeholders.",
+    icon: "home",
+    completion: 90,
+    status: "Analysis complete · notebooks published",
+    tags: [
+      { label: "Python", variant: "accent" },
+      { label: "Jupyter", variant: "default" },
+      { label: "ML", variant: "violet" },
+      { label: "Data Science", variant: "default" },
+    ],
+    links: [{ label: "GitHub", href: "https://github.com/abhishek-donekal/miami-housing-ml-analysis", variant: "github" }],
+  },
+  {
+    name: "PDF CHATBOT (RAG)",
+    desc: "Retrieval-Augmented Generation chatbot that ingests PDFs and answers questions using vector search and LLM reasoning — supports multi-document context, semantic chunking, and streaming responses.",
+    icon: "file-text",
+    completion: 83,
+    status: "Core pipeline complete · UI in progress",
+    tags: [
+      { label: "Python", variant: "accent" },
+      { label: "RAG", variant: "violet" },
+      { label: "LLM", variant: "default" },
+      { label: "Vector DB", variant: "default" },
+    ],
+    links: [{ label: "GitHub", href: "https://github.com/abhishek-donekal/pdf_chatbot", variant: "github" }],
+  },
+  {
+    name: "LLM FINE-TUNING ON AWS",
+    desc: "Full MLOps pipeline for fine-tuning and deploying custom LLMs on AWS SageMaker — includes data preparation, training job automation, inference endpoint deployment, and shell scripting for end-to-end reproducibility.",
+    icon: "cpu",
+    completion: 80,
+    status: "Pipeline complete · docs in progress",
+    tags: [
+      { label: "Python", variant: "accent" },
+      { label: "SageMaker", variant: "default" },
+      { label: "LLM", variant: "violet" },
+      { label: "Shell", variant: "default" },
+    ],
+    links: [{ label: "GitHub", href: "https://github.com/abhishek-donekal/resume_app_llm_aws", variant: "github" }],
+  },
+  {
     name: "FUSIONFORGE",
-    desc: "Full-stack TypeScript web app — modern SaaS-style site with component-driven architecture, deployed on Vercel.",
+    desc: "Full-stack TypeScript SaaS web app — component-driven architecture with Next.js, responsive design, and Vercel edge deployment. Built as a production-grade starter showcasing modern web engineering practices.",
     icon: "zap",
     live: true,
+    completion: 75,
+    status: "Live · v2 feature expansion planned",
     tags: [
       { label: "TypeScript", variant: "default" },
       { label: "Next.js", variant: "accent" },
@@ -176,10 +240,26 @@ export const PROJECTS: ProjectItem[] = [
     ],
   },
   {
+    name: "LINKEDIN AI AUTOMATION",
+    desc: "AI SaaS that auto-generates and schedules LinkedIn posts — LLM-powered content engine, Docker-containerised backend, web dashboard for post management, and n8n workflow orchestrator for publish scheduling.",
+    icon: "bot",
+    completion: 72,
+    status: "Core SaaS complete · deployment polish WIP",
+    tags: [
+      { label: "Python", variant: "accent" },
+      { label: "GenAI", variant: "violet" },
+      { label: "Docker", variant: "default" },
+      { label: "SaaS", variant: "default" },
+    ],
+    links: [{ label: "GitHub", href: "https://github.com/abhishek-donekal/linkdin-posts-automation", variant: "github" }],
+  },
+  {
     name: "LAGNAF",
-    desc: "Production-deployed web project — polished HTML/CSS/JS frontend with responsive design and interactive UI, live on Vercel.",
+    desc: "Production-deployed web project — polished HTML/CSS/JS frontend with fully responsive layout, interactive UI components, smooth animations, and live deployment on Vercel.",
     icon: "globe",
     live: true,
+    completion: 78,
+    status: "Live · responsive · Vercel deployed",
     tags: [
       { label: "HTML", variant: "accent" },
       { label: "CSS", variant: "accent" },
@@ -191,10 +271,25 @@ export const PROJECTS: ProjectItem[] = [
     ],
   },
   {
+    name: "RECRUITER CHATBOT",
+    desc: "Conversational AI for hiring teams — screens candidate FAQs, captures structured applicant data, routes qualified leads to recruiters, and reduces manual back-and-forth across the full recruitment funnel.",
+    icon: "briefcase",
+    completion: 68,
+    status: "Core conversation flow done · integrations WIP",
+    tags: [
+      { label: "Python", variant: "accent" },
+      { label: "AI Agent", variant: "violet" },
+      { label: "Chatbot", variant: "default" },
+    ],
+    links: [{ label: "GitHub", href: "https://github.com/abhishek-donekal/recruiter_chatbot", variant: "github" }],
+  },
+  {
     name: "SAVE ONE PERSON",
-    desc: "Cause-driven web app — social impact platform with clean UI, deployed live on Vercel.",
+    desc: "Cause-driven social impact web app — clean UI focused on storytelling and calls to action, fully responsive and deployed live on Vercel.",
     icon: "heart",
     live: true,
+    completion: 65,
+    status: "Live · content expansion planned",
     tags: [
       { label: "HTML", variant: "accent" },
       { label: "UI/UX", variant: "default" },
@@ -204,77 +299,6 @@ export const PROJECTS: ProjectItem[] = [
       { label: "GitHub", href: "https://github.com/abhishek-donekal/saveoneperson-clone", variant: "github" },
       { label: "Live Demo", href: "https://saveoneperson-clone.vercel.app", variant: "live" },
     ],
-  },
-  {
-    name: "LLM FINE-TUNING ON AWS",
-    desc: "Fine-tunes and deploys custom LLMs on AWS SageMaker — full training pipeline, inference API, and shell automation for end-to-end MLOps.",
-    icon: "cpu",
-    tags: [
-      { label: "Python", variant: "accent" },
-      { label: "SageMaker", variant: "default" },
-      { label: "LLM", variant: "violet" },
-      { label: "Shell", variant: "default" },
-    ],
-    links: [{ label: "GitHub", href: "https://github.com/abhishek-donekal/resume_app_llm_aws", variant: "github" }],
-  },
-  {
-    name: "LINKEDIN AI AUTOMATION",
-    desc: "AI SaaS that auto-generates and schedules LinkedIn posts — LLM content engine, Docker containerised, web dashboard, and workflow orchestrator.",
-    icon: "bot",
-    tags: [
-      { label: "Python", variant: "accent" },
-      { label: "GenAI", variant: "violet" },
-      { label: "Docker", variant: "default" },
-      { label: "SaaS", variant: "default" },
-    ],
-    links: [{ label: "GitHub", href: "https://github.com/abhishek-donekal/linkdin-posts-automation", variant: "github" }],
-  },
-  {
-    name: "PDF CHATBOT (RAG)",
-    desc: "Retrieval-Augmented Generation chatbot that ingests PDFs and answers questions using vector search and LLM reasoning.",
-    icon: "file-text",
-    tags: [
-      { label: "Python", variant: "accent" },
-      { label: "RAG", variant: "violet" },
-      { label: "LLM", variant: "default" },
-      { label: "Vector DB", variant: "default" },
-    ],
-    links: [{ label: "GitHub", href: "https://github.com/abhishek-donekal/pdf_chatbot", variant: "github" }],
-  },
-  {
-    name: "MIAMI HOUSING ML",
-    desc: "End-to-end ML study of Miami housing — curated datasets, feature engineering, regression and comparative models, plus notebooks and charts that explain market signals for stakeholders.",
-    icon: "home",
-    tags: [
-      { label: "Python", variant: "accent" },
-      { label: "Jupyter", variant: "default" },
-      { label: "ML", variant: "violet" },
-      { label: "Data Science", variant: "default" },
-    ],
-    links: [{ label: "GitHub", href: "https://github.com/abhishek-donekal/miami-housing-ml-analysis", variant: "github" }],
-  },
-  {
-    name: "RECRUITER CHATBOT",
-    desc: "Conversational AI for hiring teams — screens FAQs, captures structured applicant data, routes qualified leads, and reduces manual back-and-forth in the recruitment funnel.",
-    icon: "briefcase",
-    tags: [
-      { label: "Python", variant: "accent" },
-      { label: "AI Agent", variant: "violet" },
-      { label: "Chatbot", variant: "default" },
-    ],
-    links: [{ label: "GitHub", href: "https://github.com/abhishek-donekal/recruiter_chatbot", variant: "github" }],
-  },
-  {
-    name: "HOME SERVER + DURYO AGENT",
-    desc: "Homelab AI platform — nginx reverse proxy, n8n automation, local Ollama models, and backups. DURYO Agent watches services, summarizes incidents, and pushes alerts when something needs attention.",
-    icon: "monitor",
-    tags: [
-      { label: "nginx", variant: "accent" },
-      { label: "n8n", variant: "accent" },
-      { label: "Ollama", variant: "default" },
-      { label: "AI Agent", variant: "violet" },
-    ],
-    links: [{ label: "GitHub", href: "https://github.com/abhishek-donekal", variant: "github" }],
   },
 ];
 

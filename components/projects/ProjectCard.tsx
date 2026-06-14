@@ -13,6 +13,7 @@ import {
   Zap,
   ExternalLink,
 } from "lucide-react";
+import { motion } from "framer-motion";
 import type { ProjectItem } from "@/lib/constants";
 
 const icons = {
@@ -40,6 +41,15 @@ const linkClass = {
   github: "border-white/15 text-zinc-300 hover:border-white/25 hover:text-white",
   live: "border-accent-cyan/25 bg-accent-cyan/10 text-accent-cyan hover:bg-accent-cyan/15",
 } as const;
+
+/** Returns bar gradient + label colour based on completion score */
+function completionStyle(pct: number): { bar: string; text: string } {
+  if (pct >= 90) return { bar: "from-emerald-500 to-teal-400",   text: "text-emerald-400" };
+  if (pct >= 80) return { bar: "from-cyan-500 to-sky-400",       text: "text-cyan-400"    };
+  if (pct >= 70) return { bar: "from-violet-500 to-purple-400",  text: "text-violet-400"  };
+  if (pct >= 60) return { bar: "from-amber-500 to-orange-400",   text: "text-amber-400"   };
+  return           { bar: "from-zinc-500 to-zinc-400",           text: "text-zinc-400"    };
+}
 
 export function ProjectCard({ project }: { project: ProjectItem }) {
   const Icon =
@@ -76,6 +86,32 @@ export function ProjectCard({ project }: { project: ProjectItem }) {
             </span>
           ))}
         </div>
+
+        {/* Completion bar */}
+        {project.completion !== undefined && (() => {
+          const { bar, text } = completionStyle(project.completion);
+          return (
+            <div className="mt-5 space-y-1.5">
+              <div className="flex items-center justify-between gap-2">
+                <span className="font-mono text-[0.6rem] uppercase tracking-widest text-zinc-600">
+                  {project.status ?? "Completion"}
+                </span>
+                <span className={`font-mono text-[0.7rem] font-semibold tabular-nums ${text}`}>
+                  {project.completion}%
+                </span>
+              </div>
+              <div className="h-[3px] w-full overflow-hidden rounded-full bg-white/[0.07]">
+                <motion.div
+                  className={`h-full rounded-full bg-gradient-to-r ${bar}`}
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${project.completion}%` }}
+                  transition={{ duration: 1.1, delay: 0.25, ease: [0.25, 1, 0.5, 1] }}
+                  viewport={{ once: true, margin: "0px 0px -40px 0px" }}
+                />
+              </div>
+            </div>
+          );
+        })()}
 
         <div className="mt-5 flex flex-wrap gap-2 border-t border-white/10 pt-5">
           {project.links.map((link) => (
