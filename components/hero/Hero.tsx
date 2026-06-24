@@ -96,6 +96,12 @@ export function Hero() {
                 </>
               ) : null}
             </span>
+            <span className="mt-2 block font-mono text-[clamp(0.75rem,1.8vw,1rem)] font-normal tracking-[0.12em] text-gray-400">
+              aka{" "}
+              <span className="bg-gradient-to-r from-violet-500 to-cyan-500 bg-clip-text text-transparent font-semibold">
+                Duryo
+              </span>
+            </span>
           </h1>
 
           <p className="mx-auto mt-6 max-w-xl text-pretty text-[0.95rem] leading-relaxed text-gray-600 md:text-[1.05rem] lg:mx-0">
