@@ -403,17 +403,123 @@ export const PROJECTS: ProjectItem[] = [
   },
 ];
 
-export const SERVICES = [
-  { name: "Data Reporting & Analytics", desc: "Dashboards, KPIs, executive-ready insight" },
-  { name: "IT Consulting", desc: "Architecture reviews and technical advisory" },
-  { name: "Cloud Management", desc: "AWS, GCP, and Azure operations" },
-  { name: "SaaS Development", desc: "Product-minded web apps end to end" },
-  { name: "Database Development", desc: "SQL design, tuning, and pipelines" },
-  { name: "Computer Networking", desc: "Secure connectivity and homelab-grade setups" },
-  { name: "Cloud App Development", desc: "Serverless and container-ready backends" },
-  { name: "AI Agent Engineering", desc: "LLM workflows, RAG, and automation" },
-  { name: "Technical Support", desc: "Debug, documentation, and handoff" },
-];
+export type ServiceItem = {
+  icon: string;
+  name: string;
+  desc: string;
+  category: "ai" | "web" | "infra" | "business";
+};
+
+export const SERVICE_CATEGORIES = [
+  {
+    key: "ai" as const,
+    label: "AI & Automation",
+    color: "violet",
+    items: [
+      {
+        icon: "bot",
+        name: "AI Agent Engineering",
+        desc: "Custom LLM agents, RAG pipelines, tool-use orchestration — built to run in production.",
+      },
+      {
+        icon: "megaphone",
+        name: "AI-Assisted Marketing",
+        desc: "Auto-generate social posts, ad copy, and campaigns with LLM content engines + n8n scheduling.",
+      },
+      {
+        icon: "brain",
+        name: "Generative AI Integration",
+        desc: "Plug ChatGPT, Claude, or Ollama into your existing business tools, CRMs, and workflows.",
+      },
+      {
+        icon: "workflow",
+        name: "Workflow Automation",
+        desc: "n8n, webhooks, and AI triggers that eliminate repetitive tasks across your entire operation.",
+      },
+    ],
+  },
+  {
+    key: "web" as const,
+    label: "Web Development",
+    color: "cyan",
+    items: [
+      {
+        icon: "globe",
+        name: "Website Design & Build",
+        desc: "Fast, responsive, SEO-optimised sites — from landing pages to full multi-page business sites.",
+      },
+      {
+        icon: "zap",
+        name: "SaaS Development",
+        desc: "Full-stack web apps with auth, billing, dashboards, and API backends — shipped to production.",
+      },
+      {
+        icon: "smartphone",
+        name: "E-Commerce",
+        desc: "Online stores with product pages, cart, Stripe checkout, and inventory — ready to sell.",
+      },
+      {
+        icon: "code",
+        name: "API & Backend Development",
+        desc: "REST APIs in Flask, Django, or Next.js — clean architecture, documented, and scalable.",
+      },
+    ],
+  },
+  {
+    key: "infra" as const,
+    label: "Infrastructure & Cloud",
+    color: "emerald",
+    items: [
+      {
+        icon: "cloud",
+        name: "Cloud Management",
+        desc: "AWS, GCP, and Azure architecture, provisioning, cost optimisation, and ongoing ops.",
+      },
+      {
+        icon: "server",
+        name: "Self-Hosted Infrastructure",
+        desc: "Homelab or on-prem server setup — nginx, Docker, VPN, reverse proxies, and automation.",
+      },
+      {
+        icon: "database",
+        name: "Database Engineering",
+        desc: "SQL schema design, query tuning, data pipelines, and ETL from raw sources to insight.",
+      },
+      {
+        icon: "shield",
+        name: "Computer Networking",
+        desc: "Secure network design, VLANs, firewall config, Cloudflare tunnels, and remote access.",
+      },
+    ],
+  },
+  {
+    key: "business" as const,
+    label: "Business Services",
+    color: "amber",
+    items: [
+      {
+        icon: "bar-chart",
+        name: "Data & Analytics",
+        desc: "Executive dashboards, KPI tracking, and automated reports that surface what actually matters.",
+      },
+      {
+        icon: "briefcase",
+        name: "IT Consulting",
+        desc: "Architecture reviews, tech stack decisions, and strategic advisory for startups and SMBs.",
+      },
+      {
+        icon: "search",
+        name: "Local SEO & Digital Presence",
+        desc: "Google Business, structured data, page speed, and local search optimisation to get found.",
+      },
+      {
+        icon: "headphones",
+        name: "Technical Support & Handoff",
+        desc: "Bug triage, documentation, team onboarding, and clean handoff for any tech system.",
+      },
+    ],
+  },
+] as const;
 
 export const CERT_ROWS = {
   cloud: [
