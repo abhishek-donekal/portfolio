@@ -13,6 +13,7 @@ import {
   Server,
   Shield,
   Smartphone,
+  TrendingUp,
   Workflow,
   Zap,
 } from "lucide-react";
@@ -35,6 +36,7 @@ const icons: Record<string, React.ComponentType<{ className?: string; strokeWidt
   briefcase: Briefcase,
   search: Search,
   headphones: Headphones,
+  "trending-up": TrendingUp,
 };
 
 const categoryStyle: Record<string, { border: string; iconBg: string; iconText: string; badge: string; badgeText: string; dot: string }> = {

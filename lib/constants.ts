@@ -436,6 +436,11 @@ export const SERVICE_CATEGORIES = [
         name: "Workflow Automation",
         desc: "n8n, webhooks, and AI triggers that eliminate repetitive tasks across your entire operation.",
       },
+      {
+        icon: "trending-up",
+        name: "AI-Powered SEO",
+        desc: "ChatGPT-driven keyword research, auto-generated meta tags, SEO content writing, and competitor gap analysis at scale.",
+      },
     ],
   },
   {
@@ -509,8 +514,8 @@ export const SERVICE_CATEGORIES = [
       },
       {
         icon: "search",
-        name: "Local SEO & Digital Presence",
-        desc: "Google Business, structured data, page speed, and local search optimisation to get found.",
+        name: "SEO & Digital Presence",
+        desc: "On-page SEO, Google Business, structured data, page speed, backlinks, and local search — full visibility strategy.",
       },
       {
         icon: "headphones",
