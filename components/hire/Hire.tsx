@@ -10,37 +10,38 @@ export function Hire() {
       />
       <div className="relative z-[1] mx-auto max-w-2xl">
         <p className="font-mono text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-violet-600">
-          Available for opportunities
+          Available for projects &amp; roles
         </p>
         <h3 className="mt-3 font-display text-2xl font-bold tracking-tight text-gray-900 md:text-3xl">
-          Let&apos;s build intelligent systems together
+          Let&apos;s build something great together
         </h3>
         <p className="mx-auto mt-4 max-w-lg text-[0.95rem] leading-relaxed text-gray-600">
-          Open to roles in AI engineering, agent orchestration, data platforms,
-          and cloud ML — remote, hybrid, or Miami on-site.
+          Need an AI engineer, data platform, or custom agent system?
+          I offer end-to-end services from architecture to deployment —
+          remote, hybrid, or Miami on-site.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <MagneticButton
+            href="#services"
+            className="rounded-[10px] bg-accent-violet px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-accent-violetMuted"
+          >
+            View my services
+          </MagneticButton>
           <MagneticButton
             href={CONTACT.gmailCompose}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-[10px] bg-accent-violet px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-accent-violetMuted"
+            className="rounded-[10px] border border-gray-200 bg-gray-50 px-7 py-3 text-sm font-semibold text-gray-700 transition hover:bg-gray-100 hover:text-gray-900"
           >
-            Email me
+            Get in touch
           </MagneticButton>
           <MagneticButton
             href={CONTACT.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-[10px] border border-gray-200 bg-gray-50 px-7 py-3 text-sm font-semibold text-gray-700 transition hover:bg-gray-100 hover:text-gray-900"
-          >
-            LinkedIn
-          </MagneticButton>
-          <MagneticButton
-            href={`tel:${CONTACT.phoneTel}`}
             className="rounded-[10px] border border-gray-200 bg-transparent px-7 py-3 text-sm font-semibold text-gray-500 transition hover:border-gray-400 hover:text-gray-900"
           >
-            Call {CONTACT.phoneDisplay}
+            LinkedIn
           </MagneticButton>
         </div>
       </div>

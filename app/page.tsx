@@ -89,7 +89,7 @@ export default function Home() {
           className="scroll-mt-[72px] px-6 pb-28 pt-12 md:px-10"
         >
           <div className="mx-auto max-w-6xl">
-            <SectionTitle num="07" title="Hire me" accent="emerald" />
+            <SectionTitle num="07" title="Work with me" accent="emerald" />
             <Hire />
           </div>
         </SectionShell>
