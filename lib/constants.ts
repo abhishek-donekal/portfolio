@@ -42,7 +42,7 @@ export const TYPEWRITER_LINES = [
 
 export const HERO_STATS = [
   { target: 5, label: "YEARS EXP" },
-  { target: 10, label: "PROJECTS" },
+  { target: 16, label: "PROJECTS" },
   { target: 7, label: "CLOUD CERTS" },
 ];
 
@@ -298,6 +298,107 @@ export const PROJECTS: ProjectItem[] = [
     links: [
       { label: "GitHub", href: "https://github.com/abhishek-donekal/saveoneperson-clone", variant: "github" },
       { label: "Live Demo", href: "https://saveoneperson-clone.vercel.app", variant: "live" },
+    ],
+  },
+  {
+    name: "STORIX — EXPLR9 STORE",
+    desc: "Premium e-commerce site for the Tesla EXPLR9 rugged phone — Three.js scroll-driven 3D phone animation, orbital ring effects, product gallery with real images, YouTube integration, and full Next.js commerce architecture.",
+    icon: "smartphone",
+    live: true,
+    completion: 82,
+    status: "Live · 3D animation complete · checkout WIP",
+    tags: [
+      { label: "Next.js", variant: "accent" },
+      { label: "Three.js", variant: "violet" },
+      { label: "3D / WebGL", variant: "default" },
+      { label: "E-Commerce", variant: "default" },
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/abhishek-donekal/storix", variant: "github" },
+      { label: "Live Demo", href: "https://storix-jade.vercel.app", variant: "live" },
+    ],
+  },
+  {
+    name: "LUXY EVENTS CLONE",
+    desc: "Full Next.js clone of luxy-events.com — production-grade event company website featuring Diamond Lines partnership content, partner badges, meal-prep section, and polished multi-page architecture.",
+    icon: "calendar",
+    live: true,
+    completion: 78,
+    status: "Live · multi-page · Diamond Lines content complete",
+    tags: [
+      { label: "Next.js", variant: "accent" },
+      { label: "TypeScript", variant: "default" },
+      { label: "Vercel", variant: "default" },
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/abhishek-donekal/luxy-events-clone", variant: "github" },
+      { label: "Live Demo", href: "https://luxy-events-clone.vercel.app", variant: "live" },
+    ],
+  },
+  {
+    name: "RKD TECH GROUP",
+    desc: "Corporate website for RKD Tech Group — professional tech company brand with bold \"Think Differently\" positioning, responsive layout, and clean multi-section design.",
+    icon: "building",
+    live: true,
+    completion: 72,
+    status: "Live · corporate brand site",
+    tags: [
+      { label: "HTML/CSS", variant: "accent" },
+      { label: "JavaScript", variant: "default" },
+      { label: "Vercel", variant: "default" },
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/abhishek-donekal/rkd-tech-group", variant: "github" },
+      { label: "Live Demo", href: "https://rkd-tech-group.vercel.app", variant: "live" },
+    ],
+  },
+  {
+    name: "RKD SOFTWARE INNOVATIONS",
+    desc: "AI & IT Solutions company website — showcases software development, AI integration, and enterprise IT services with professional branding and modern responsive design.",
+    icon: "code",
+    live: true,
+    completion: 70,
+    status: "Live · AI & IT company brand",
+    tags: [
+      { label: "HTML/CSS", variant: "accent" },
+      { label: "JavaScript", variant: "default" },
+      { label: "AI/IT", variant: "violet" },
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/abhishek-donekal/rkd-software-innovations", variant: "github" },
+      { label: "Live Demo", href: "https://rkd-software-innovations.vercel.app", variant: "live" },
+    ],
+  },
+  {
+    name: "QLX — THE FUTURE IS HERE",
+    desc: "Futuristic tech product landing page built with Orbitron + Inter typography, animated sections, and bundled n8n remote-access scripts for AI automation setup — showcasing speculative tech branding.",
+    icon: "zap",
+    completion: 60,
+    status: "GitHub · n8n scripts included",
+    tags: [
+      { label: "HTML/CSS", variant: "accent" },
+      { label: "JavaScript", variant: "default" },
+      { label: "n8n", variant: "violet" },
+    ],
+    links: [
+      { label: "GitHub", href: "https://github.com/abhishek-donekal/qlx", variant: "github" },
+    ],
+  },
+  {
+    name: "WEEDZIES MIAMI",
+    desc: "Full-service smoke shop website for Weedzies Miami in Little Haiti — branded with Monoton + Bungee typography, neon-pink theme, age-gate landing, product category pages, Google Maps embed, and live SEO-optimised meta for local search.",
+    icon: "globe",
+    live: true,
+    completion: 85,
+    status: "Live · local SEO · custom domain",
+    tags: [
+      { label: "HTML/CSS", variant: "accent" },
+      { label: "JavaScript", variant: "default" },
+      { label: "Local SEO", variant: "violet" },
+      { label: "Branding", variant: "default" },
+    ],
+    links: [
+      { label: "Live Demo", href: "https://weedziesmiami.vercel.app", variant: "live" },
     ],
   },
 ];

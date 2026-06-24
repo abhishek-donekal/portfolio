@@ -9,9 +9,9 @@ const STRIP_COLORS = [
 ];
 
 const LABEL_TINT = [
-  "text-emerald-500/85",
-  "text-violet-400/85",
-  "text-amber-400/85",
+  "text-emerald-600",
+  "text-violet-500",
+  "text-amber-500",
 ];
 
 function StatCell({
@@ -53,14 +53,14 @@ function StatCell({
   }, [target]);
 
   const strip = STRIP_COLORS[index % STRIP_COLORS.length] ?? STRIP_COLORS[0];
-  const labelClass = LABEL_TINT[index % LABEL_TINT.length] ?? "text-zinc-500";
+  const labelClass = LABEL_TINT[index % LABEL_TINT.length] ?? "text-gray-500";
 
   return (
     <div
       ref={cellRef}
-      className={`flex flex-1 flex-col bg-white/[0.03] px-6 py-4 text-center md:px-8 ${strip} border-t-2`}
+      className={`flex flex-1 flex-col bg-white px-6 py-4 text-center md:px-8 ${strip} border-t-2`}
     >
-      <div className="font-display text-2xl font-bold tracking-tight text-white md:text-[1.6rem]">
+      <div className="font-display text-2xl font-bold tracking-tight text-gray-900 md:text-[1.6rem]">
         {v}
         {v >= target ? "+" : ""}
       </div>
@@ -79,7 +79,7 @@ export function StatCounters({
   stats: { target: number; label: string }[];
 }) {
   return (
-    <div className="flex justify-center divide-x divide-white/10 overflow-hidden rounded-xl border border-white/12 bg-gradient-to-br from-emerald-500/[0.05] via-violet-500/[0.04] to-amber-500/[0.05] shadow-[inset_0_1px_0_0_rgba(255,255,255,0.06)]">
+    <div className="flex justify-center divide-x divide-gray-200 overflow-hidden rounded-xl border border-gray-200 bg-gradient-to-br from-emerald-500/[0.04] via-violet-500/[0.03] to-amber-500/[0.04] shadow-sm">
       {stats.map((s, i) => (
         <StatCell key={s.label} target={s.target} label={s.label} index={i} />
       ))}

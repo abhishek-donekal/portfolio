@@ -7,17 +7,17 @@ export function Services() {
       {SERVICES.map((s) => (
         <article
           key={s.name}
-          className="glass-panel rounded-xl border-white/10 p-5 transition hover:border-accent-violet/25 hover:shadow-glow"
+          className="glass-panel rounded-xl border-gray-200 p-5 transition hover:border-violet-300 hover:shadow-glow"
         >
           <div className="glass-inner flex gap-3">
-            <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/12 bg-white/[0.04] text-accent-violet drop-shadow-[0_0_12px_rgba(14,165,233,0.35)]">
+            <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-gray-50 text-accent-violet">
               <Briefcase className="h-4 w-4" strokeWidth={1.5} />
             </span>
             <div>
-              <h3 className="font-display text-[0.95rem] font-semibold text-white">
+              <h3 className="font-display text-[0.95rem] font-semibold text-gray-900">
                 {s.name}
               </h3>
-              <p className="mt-1 text-[0.82rem] leading-relaxed text-zinc-500">
+              <p className="mt-1 text-[0.82rem] leading-relaxed text-gray-500">
                 {s.desc}
               </p>
             </div>

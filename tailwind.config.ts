@@ -9,10 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        midnight: "#050508",
+        midnight: "#ffffff",
         surface: {
-          DEFAULT: "#0a0b10",
-          2: "#12131a",
+          DEFAULT: "#f9fafb",
+          2: "#f3f4f6",
         },
         accent: {
           violet: "#8b5cf6",
@@ -35,9 +35,9 @@ const config: Config = {
         display: ["var(--font-fraunces)", "Georgia", "serif"],
       },
       boxShadow: {
-        glass: "inset 0 1px 0 0 rgba(255,255,255,0.06)",
+        glass: "0 1px 3px 0 rgba(0,0,0,0.08), 0 1px 2px -1px rgba(0,0,0,0.05), inset 0 0 0 1px rgba(0,0,0,0.06)",
         glow:
-          "0 0 48px -12px rgba(139,92,246,0.35), 0 0 32px -16px rgba(34,211,238,0.12)",
+          "0 4px 24px -6px rgba(139,92,246,0.18), 0 2px 12px -4px rgba(34,211,238,0.1)",
       },
       backgroundImage: {
         "spectral-mesh":

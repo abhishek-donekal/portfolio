@@ -5,34 +5,34 @@ const STYLES: Record<
   { num: string; lineFrom: string; lineVia?: string }
 > = {
   emerald: {
-    num: "text-emerald-400",
-    lineFrom: "from-emerald-500/70",
-    lineVia: "via-cyan-500/25",
+    num: "text-emerald-500",
+    lineFrom: "from-emerald-500/50",
+    lineVia: "via-cyan-500/20",
   },
   cyan: {
-    num: "text-cyan-400",
-    lineFrom: "from-cyan-500/65",
-    lineVia: "via-blue-500/20",
+    num: "text-cyan-600",
+    lineFrom: "from-cyan-500/50",
+    lineVia: "via-blue-500/15",
   },
   violet: {
-    num: "text-violet-400",
-    lineFrom: "from-violet-500/65",
-    lineVia: "via-fuchsia-500/25",
+    num: "text-violet-500",
+    lineFrom: "from-violet-500/50",
+    lineVia: "via-fuchsia-500/20",
   },
   amber: {
-    num: "text-amber-400",
-    lineFrom: "from-amber-500/70",
-    lineVia: "via-orange-500/25",
+    num: "text-amber-500",
+    lineFrom: "from-amber-500/55",
+    lineVia: "via-orange-500/20",
   },
   rose: {
-    num: "text-rose-400",
-    lineFrom: "from-rose-500/65",
-    lineVia: "via-pink-500/20",
+    num: "text-rose-500",
+    lineFrom: "from-rose-500/50",
+    lineVia: "via-pink-500/15",
   },
   sky: {
-    num: "text-sky-400",
-    lineFrom: "from-sky-500/65",
-    lineVia: "via-indigo-500/25",
+    num: "text-sky-500",
+    lineFrom: "from-sky-500/50",
+    lineVia: "via-indigo-500/20",
   },
 };
 
@@ -53,11 +53,11 @@ export function SectionTitle({
       >
         {num}
       </span>
-      <h2 className="font-display text-xl font-bold uppercase tracking-tight text-white md:text-[clamp(1.35rem,2.8vw,1.85rem)]">
+      <h2 className="font-display text-xl font-bold uppercase tracking-tight text-gray-900 md:text-[clamp(1.35rem,2.8vw,1.85rem)]">
         {title}
       </h2>
       <div
-        className={`h-px min-w-[2rem] flex-1 bg-gradient-to-r ${s.lineFrom} ${s.lineVia ?? ""} to-white/[0.06]`}
+        className={`h-px min-w-[2rem] flex-1 bg-gradient-to-r ${s.lineFrom} ${s.lineVia ?? ""} to-transparent`}
       />
     </div>
   );

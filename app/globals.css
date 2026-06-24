@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --hero-vignette: rgba(5, 5, 8, 0.92);
+  --hero-vignette: rgba(255, 255, 255, 0.85);
 }
 
 html.custom-cursor {
@@ -16,7 +16,7 @@ html.custom-cursor button {
 }
 
 body {
-  @apply bg-midnight antialiased text-zinc-100;
+  @apply bg-midnight antialiased text-gray-900;
 }
 
 body::before {
@@ -25,35 +25,35 @@ body::before {
   inset: 0;
   pointer-events: none;
   z-index: -1;
-  opacity: 0.95;
+  opacity: 0.7;
   background-image: radial-gradient(
       ellipse 120% 80% at 50% -20%,
-      rgba(139, 92, 246, 0.07),
+      rgba(139, 92, 246, 0.08),
       transparent 55%
     ),
     radial-gradient(
       ellipse 70% 50% at 100% 50%,
-      rgba(34, 211, 238, 0.05),
+      rgba(34, 211, 238, 0.06),
       transparent 48%
     ),
     radial-gradient(
       ellipse 60% 45% at 0% 60%,
-      rgba(251, 191, 36, 0.04),
+      rgba(251, 191, 36, 0.05),
       transparent 45%
     );
 }
 
 ::selection {
-  @apply bg-violet-500/35 text-white;
+  @apply bg-violet-500/25 text-gray-900;
 }
 
 :focus-visible {
-  @apply rounded outline outline-2 outline-offset-[3px] outline-cyan-400;
+  @apply rounded outline outline-2 outline-offset-[3px] outline-violet-500;
 }
 
 @layer utilities {
   .glass-panel {
-    @apply relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-glass;
+    @apply relative overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-glass;
   }
 
   .glass-panel::before {
@@ -62,22 +62,17 @@ body::before {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    opacity: 0.65;
+    opacity: 0.3;
     background:
       radial-gradient(
         ellipse 70% 50% at 12% -5%,
-        rgba(167, 139, 250, 0.12),
+        rgba(167, 139, 250, 0.08),
         transparent 52%
       ),
       radial-gradient(
         ellipse 55% 42% at 92% 88%,
-        rgba(52, 211, 211, 0.1),
+        rgba(52, 211, 211, 0.06),
         transparent 48%
-      ),
-      radial-gradient(
-        ellipse 40% 38% at 55% 50%,
-        rgba(251, 191, 36, 0.05),
-        transparent 42%
       );
   }
 
@@ -98,9 +93,9 @@ body::before {
     transition: opacity 0.35s ease;
     background: linear-gradient(
       transparent 0%,
-      rgba(34, 211, 238, 0.07) 40%,
-      rgba(167, 139, 250, 0.12) 50%,
-      rgba(251, 191, 36, 0.08) 60%,
+      rgba(34, 211, 238, 0.04) 40%,
+      rgba(167, 139, 250, 0.06) 50%,
+      rgba(251, 191, 36, 0.04) 60%,
       transparent 100%
     );
     background-size: 100% 240%;
@@ -113,29 +108,29 @@ body::before {
   }
 
   /**
-   * Hero: multi-color ambient (emerald • violet • cyan • amber hints).
+   * Hero: multi-color ambient on white background.
    */
   .hero-backdrop {
-    background-color: #050508;
+    background-color: #ffffff;
     background-image:
       radial-gradient(
         ellipse 90% 65% at 40% -12%,
-        rgba(52, 211, 153, 0.14),
+        rgba(52, 211, 153, 0.12),
         transparent 54%
       ),
       radial-gradient(
         ellipse 50% 45% at 95% 20%,
-        rgba(167, 139, 250, 0.12),
+        rgba(167, 139, 250, 0.1),
         transparent 50%
       ),
       radial-gradient(
         ellipse 55% 48% at 75% 95%,
-        rgba(34, 211, 238, 0.1),
+        rgba(34, 211, 238, 0.08),
         transparent 52%
       ),
       radial-gradient(
         ellipse 45% 42% at 5% 70%,
-        rgba(251, 191, 36, 0.08),
+        rgba(251, 191, 36, 0.06),
         transparent 46%
       );
   }
@@ -146,23 +141,15 @@ body::before {
     inset: 0;
     background-image:
       linear-gradient(
-        rgba(52, 211, 211, 0.04) 1px,
+        rgba(52, 211, 211, 0.03) 1px,
         transparent 1px
       ),
       linear-gradient(
         90deg,
-        rgba(167, 139, 250, 0.035) 1px,
-        transparent 1px
-      ),
-      linear-gradient(
-        rgba(251, 191, 36, 0.02) 1px,
+        rgba(167, 139, 250, 0.025) 1px,
         transparent 1px
       );
-    background-size: 96px 96px, 96px 96px, 288px 288px;
-    background-position:
-      0 0,
-      0 0,
-      12px 24px;
+    background-size: 96px 96px, 96px 96px;
     mask-image: radial-gradient(
       ellipse 78% 65% at 48% 46%,
       black 8%,
@@ -173,12 +160,12 @@ body::before {
       black 8%,
       transparent 76%
     );
-    opacity: 0.55;
+    opacity: 0.4;
   }
 
   @media (prefers-reduced-motion: reduce) {
     .hero-backdrop::before {
-      opacity: 0.42;
+      opacity: 0.25;
     }
   }
 }

@@ -3,6 +3,9 @@
 import {
   Bot,
   Briefcase,
+  Building2,
+  Calendar,
+  Code2,
   Cpu,
   FileText,
   Globe,
@@ -10,6 +13,7 @@ import {
   Heart,
   Home,
   Monitor,
+  Smartphone,
   Zap,
   ExternalLink,
 } from "lucide-react";
@@ -26,29 +30,32 @@ const icons = {
   home: Home,
   briefcase: Briefcase,
   monitor: Monitor,
+  smartphone: Smartphone,
+  calendar: Calendar,
+  building: Building2,
+  code: Code2,
 } as const;
 
 const tagClass: Record<
   ProjectItem["tags"][number]["variant"],
   string
 > = {
-  default: "border-white/15 bg-black/35 text-zinc-400",
-  accent: "border-cyan-400/25 bg-cyan-400/10 text-cyan-300",
-  violet: "border-accent-violet/30 bg-accent-violet/10 text-accent-violetMuted",
+  default: "border-gray-200 bg-gray-100 text-gray-600",
+  accent: "border-cyan-300/50 bg-cyan-50 text-cyan-700",
+  violet: "border-violet-300/50 bg-violet-50 text-violet-700",
 };
 
 const linkClass = {
-  github: "border-white/15 text-zinc-300 hover:border-white/25 hover:text-white",
-  live: "border-accent-cyan/25 bg-accent-cyan/10 text-accent-cyan hover:bg-accent-cyan/15",
+  github: "border-gray-200 text-gray-600 hover:border-gray-400 hover:text-gray-900",
+  live: "border-accent-cyan/30 bg-cyan-50 text-cyan-700 hover:bg-cyan-100",
 } as const;
 
-/** Returns bar gradient + label colour based on completion score */
 function completionStyle(pct: number): { bar: string; text: string } {
-  if (pct >= 90) return { bar: "from-emerald-500 to-teal-400",   text: "text-emerald-400" };
-  if (pct >= 80) return { bar: "from-cyan-500 to-sky-400",       text: "text-cyan-400"    };
-  if (pct >= 70) return { bar: "from-violet-500 to-purple-400",  text: "text-violet-400"  };
-  if (pct >= 60) return { bar: "from-amber-500 to-orange-400",   text: "text-amber-400"   };
-  return           { bar: "from-zinc-500 to-zinc-400",           text: "text-zinc-400"    };
+  if (pct >= 90) return { bar: "from-emerald-500 to-teal-400",   text: "text-emerald-600" };
+  if (pct >= 80) return { bar: "from-cyan-500 to-sky-400",       text: "text-cyan-600"    };
+  if (pct >= 70) return { bar: "from-violet-500 to-purple-400",  text: "text-violet-600"  };
+  if (pct >= 60) return { bar: "from-amber-500 to-orange-400",   text: "text-amber-600"   };
+  return           { bar: "from-gray-400 to-gray-300",           text: "text-gray-500"    };
 }
 
 export function ProjectCard({ project }: { project: ProjectItem }) {
@@ -56,23 +63,23 @@ export function ProjectCard({ project }: { project: ProjectItem }) {
     icons[project.icon as keyof typeof icons] ?? Zap;
 
   return (
-    <article className="glass-panel scan-hover group rounded-xl border-white/10 transition-shadow duration-300 hover:shadow-glow">
+    <article className="glass-panel scan-hover group rounded-xl border-gray-200 transition-shadow duration-300 hover:shadow-glow">
       <div className="glass-inner flex h-full flex-col p-6 md:p-7">
         <div className="mb-4 flex items-start justify-between gap-3">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] border border-white/12 bg-white/[0.04] text-accent-violet drop-shadow-[0_0_14px_rgba(14,165,233,0.35)] transition group-hover:scale-[1.03]">
+          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] border border-gray-200 bg-gray-50 text-accent-violet transition group-hover:scale-[1.03]">
             <Icon className="h-5 w-5" strokeWidth={1.5} />
           </div>
           {project.live ? (
-            <span className="rounded-full border border-emerald-500/25 bg-emerald-500/10 px-2.5 py-0.5 font-mono text-[0.62rem] font-semibold uppercase tracking-wider text-emerald-300/95">
+            <span className="rounded-full border border-emerald-400/40 bg-emerald-50 px-2.5 py-0.5 font-mono text-[0.62rem] font-semibold uppercase tracking-wider text-emerald-700">
               Live
             </span>
           ) : null}
         </div>
 
-        <h3 className="font-display text-lg font-semibold tracking-tight text-white transition group-hover:text-zinc-50 md:text-xl">
+        <h3 className="font-display text-lg font-semibold tracking-tight text-gray-900 transition group-hover:text-gray-700 md:text-xl">
           {project.name}
         </h3>
-        <p className="mt-2 flex-1 text-[0.88rem] leading-relaxed text-zinc-400">
+        <p className="mt-2 flex-1 text-[0.88rem] leading-relaxed text-gray-600">
           {project.desc}
         </p>
 
@@ -93,14 +100,14 @@ export function ProjectCard({ project }: { project: ProjectItem }) {
           return (
             <div className="mt-5 space-y-1.5">
               <div className="flex items-center justify-between gap-2">
-                <span className="font-mono text-[0.6rem] uppercase tracking-widest text-zinc-600">
+                <span className="font-mono text-[0.6rem] uppercase tracking-widest text-gray-400">
                   {project.status ?? "Completion"}
                 </span>
                 <span className={`font-mono text-[0.7rem] font-semibold tabular-nums ${text}`}>
                   {project.completion}%
                 </span>
               </div>
-              <div className="h-[3px] w-full overflow-hidden rounded-full bg-white/[0.07]">
+              <div className="h-[3px] w-full overflow-hidden rounded-full bg-gray-200">
                 <motion.div
                   className={`h-full rounded-full bg-gradient-to-r ${bar}`}
                   initial={{ width: 0 }}
@@ -113,7 +120,7 @@ export function ProjectCard({ project }: { project: ProjectItem }) {
           );
         })()}
 
-        <div className="mt-5 flex flex-wrap gap-2 border-t border-white/10 pt-5">
+        <div className="mt-5 flex flex-wrap gap-2 border-t border-gray-200 pt-5">
           {project.links.map((link) => (
             <a
               key={link.href}

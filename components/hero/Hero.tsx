@@ -44,7 +44,7 @@ function SocialChip({
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className={`flex h-11 w-11 items-center justify-center rounded-full border border-white/18 bg-zinc-900/90 text-zinc-300 shadow-sm transition hover:shadow-md ${SOCIAL_RING[network]}`}
+      className={`flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 bg-white text-gray-600 shadow-sm transition hover:shadow-md ${SOCIAL_RING[network]}`}
     >
       {children}
     </a>
@@ -64,27 +64,23 @@ export function Hero() {
       <HeroTechBg />
 
       <div
-        className="pointer-events-none absolute inset-0 z-[2] bg-[radial-gradient(ellipse_85%_65%_at_50%_45%,transparent_10%,rgba(5,5,12,0.62)_56%,rgb(5,5,8)_92%)]"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-transparent via-transparent to-midnight"
+        className="pointer-events-none absolute inset-0 z-[2] bg-gradient-to-b from-transparent via-transparent to-white/60"
         aria-hidden
       />
 
       <div className="relative z-[10] mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-14">
         {/* Left column */}
         <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-          <span className="mb-6 inline-flex max-w-full flex-wrap justify-center gap-x-1 rounded-full border border-transparent bg-gradient-to-r from-emerald-500/20 via-violet-500/20 to-cyan-500/20 bg-clip-padding px-[1px] py-[1px] font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em] md:text-[0.72rem] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)] backdrop-blur-sm">
-            <span className="rounded-full bg-zinc-950/90 px-[calc(1rem-1px)] py-[calc(0.5rem-1px)] text-[0.68rem] text-zinc-200 md:text-[0.72rem]">
-              <span className="bg-gradient-to-r from-emerald-300 via-violet-200 to-cyan-300 bg-clip-text text-transparent">
+          <span className="mb-6 inline-flex max-w-full flex-wrap justify-center gap-x-1 rounded-full border border-violet-200 bg-gradient-to-r from-emerald-50 via-violet-50 to-cyan-50 px-[1px] py-[1px] font-mono text-[0.68rem] font-medium uppercase tracking-[0.12em] md:text-[0.72rem] shadow-sm backdrop-blur-sm">
+            <span className="rounded-full bg-white px-[calc(1rem-1px)] py-[calc(0.5rem-1px)] text-[0.68rem] text-gray-700 md:text-[0.72rem]">
+              <span className="bg-gradient-to-r from-emerald-600 via-violet-600 to-cyan-600 bg-clip-text text-transparent">
                 {HERO_ROLE_BADGE}
               </span>
             </span>
           </span>
 
-          <h1 className="font-display font-bold tracking-tight text-white">
-            <span className="block text-[clamp(1.35rem,4vw,1.85rem)] text-white">
+          <h1 className="font-display font-bold tracking-tight text-gray-900">
+            <span className="block text-[clamp(1.35rem,4vw,1.85rem)] text-gray-700">
               Hi, I&apos;m
             </span>
             <span className="mt-2 block text-[clamp(2.35rem,7.5vw,4rem)] leading-[1.05]">
@@ -102,7 +98,7 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-xl text-pretty text-[0.95rem] leading-relaxed text-zinc-400 md:text-[1.05rem] lg:mx-0">
+          <p className="mx-auto mt-6 max-w-xl text-pretty text-[0.95rem] leading-relaxed text-gray-600 md:text-[1.05rem] lg:mx-0">
             {HERO_INTRO}
           </p>
 
@@ -120,7 +116,7 @@ export function Hero() {
             </MagneticButton>
             <MagneticButton
               href="#hire"
-              className="rounded-xl border border-white/22 bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:border-violet-400/55 hover:bg-violet-950/35 hover:text-violet-50"
+              className="rounded-xl border border-gray-300 bg-transparent px-6 py-3 text-sm font-semibold text-gray-700 transition hover:border-violet-400 hover:bg-violet-50 hover:text-violet-700"
             >
               Contact me
             </MagneticButton>
@@ -142,7 +138,7 @@ export function Hero() {
             </SocialChip>
           </div>
 
-          <p className="mt-8 font-mono text-[0.7rem] text-zinc-600">
+          <p className="mt-8 font-mono text-[0.7rem] text-gray-500">
             <a
               href="/resume.pdf"
               target="_blank"
@@ -160,7 +156,7 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute bottom-8 left-1/2 z-[10] flex -translate-x-1/2 flex-col items-center gap-2 text-zinc-600">
+      <div className="pointer-events-none absolute bottom-8 left-1/2 z-[10] flex -translate-x-1/2 flex-col items-center gap-2 text-gray-400">
         <Mouse className="h-8 w-8 opacity-70" strokeWidth={1.25} aria-hidden />
         <span className="text-[0.65rem] uppercase tracking-[0.22em]">Scroll</span>
       </div>

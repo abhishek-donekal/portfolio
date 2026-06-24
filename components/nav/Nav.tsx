@@ -41,18 +41,18 @@ export function Nav() {
   }, [open]);
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-[1000] flex h-[58px] items-center justify-between gap-4 border-b border-white/10 bg-[rgba(5,5,8,0.88)] px-6 shadow-[0_12px_40px_-20px_rgba(139,92,246,0.25),inset_0_-1px_0_0_rgba(34,211,238,0.12)] backdrop-blur-xl md:px-10">
+    <header className="fixed left-0 right-0 top-0 z-[1000] flex h-[58px] items-center justify-between gap-4 border-b border-gray-200 bg-[rgba(255,255,255,0.92)] px-6 shadow-[0_1px_0_0_rgba(0,0,0,0.06)] backdrop-blur-xl md:px-10">
       <div className="flex min-w-0 flex-1 items-center gap-4 md:gap-6">
         <a
           href="#hero"
-          className="shrink-0 font-display text-[0.95rem] font-semibold tracking-tight text-white"
+          className="shrink-0 font-display text-[0.95rem] font-semibold tracking-tight text-gray-900"
         >
           Abhishek Donekal
         </a>
 
         <nav
-          className={`fixed left-0 right-0 top-[58px] z-[999] flex max-h-0 flex-col overflow-hidden border-b border-transparent bg-[rgba(5,5,5,0.97)] px-6 backdrop-blur-xl transition-[max-height,padding,border-color] duration-300 md:static md:max-h-none md:flex-row md:gap-4 md:overflow-visible md:border-0 md:bg-transparent md:p-0 lg:gap-5 ${
-            open ? "max-h-[420px] border-white/10 py-4" : ""
+          className={`fixed left-0 right-0 top-[58px] z-[999] flex max-h-0 flex-col overflow-hidden border-b border-transparent bg-white px-6 backdrop-blur-xl transition-[max-height,padding,border-color] duration-300 md:static md:max-h-none md:flex-row md:gap-4 md:overflow-visible md:border-0 md:bg-transparent md:p-0 lg:gap-5 ${
+            open ? "max-h-[420px] border-gray-200 py-4" : ""
           }`}
           id="nav-menu"
           aria-label="Primary"
@@ -62,10 +62,10 @@ export function Nav() {
               <li key={l.href}>
                 <a
                   href={l.href}
-                  className={`text-[0.82rem] font-medium transition-colors hover:text-white ${
+                  className={`text-[0.82rem] font-medium transition-colors hover:text-gray-900 ${
                     active === l.href.slice(1)
-                      ? "text-white"
-                      : "text-zinc-400"
+                      ? "text-gray-900"
+                      : "text-gray-500"
                   }`}
                   onClick={() => setOpen(false)}
                 >
@@ -78,10 +78,10 @@ export function Nav() {
       </div>
 
       <div className="flex shrink-0 items-center gap-3 md:gap-4">
-        <div className="hidden items-center gap-4 text-[0.78rem] font-medium text-zinc-400 sm:flex">
+        <div className="hidden items-center gap-4 text-[0.78rem] font-medium text-gray-500 sm:flex">
           <a
             href={`tel:${CONTACT.phoneTel}`}
-            className="whitespace-nowrap hover:text-white"
+            className="whitespace-nowrap hover:text-gray-900"
           >
             {CONTACT.phoneDisplay}
           </a>
@@ -89,7 +89,7 @@ export function Nav() {
             href={CONTACT.gmailCompose}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden hover:text-white lg:inline"
+            className="hidden hover:text-gray-900 lg:inline"
             title={CONTACT.email}
           >
             {CONTACT.email}
@@ -98,7 +98,7 @@ export function Nav() {
             href={CONTACT.gmailCompose}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-white lg:hidden"
+            className="hover:text-gray-900 lg:hidden"
           >
             Email
           </a>
@@ -106,16 +106,16 @@ export function Nav() {
 
         <button
           type="button"
-          className="flex h-9 w-10 flex-col items-center justify-center rounded-[10px] border border-white/15 md:hidden"
+          className="flex h-9 w-10 flex-col items-center justify-center rounded-[10px] border border-gray-200 md:hidden"
           aria-expanded={open}
           aria-controls="nav-menu"
           aria-label={open ? "Close menu" : "Menu"}
           onClick={() => setOpen(!open)}
         >
           {open ? (
-            <X className="h-5 w-5 text-zinc-300" strokeWidth={1.5} />
+            <X className="h-5 w-5 text-gray-600" strokeWidth={1.5} />
           ) : (
-            <Menu className="h-5 w-5 text-zinc-300" strokeWidth={1.5} />
+            <Menu className="h-5 w-5 text-gray-600" strokeWidth={1.5} />
           )}
         </button>
       </div>

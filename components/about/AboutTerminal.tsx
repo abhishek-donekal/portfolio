@@ -32,28 +32,28 @@ export function AboutTerminal() {
   }, [visible]);
 
   return (
-    <div className="glass-panel rounded-xl border-white/10">
-      <div className="flex items-center gap-2 border-b border-white/10 bg-white/[0.04] px-4 py-3">
+    <div className="overflow-hidden rounded-xl border border-gray-200 bg-gray-900 shadow-sm">
+      <div className="flex items-center gap-2 border-b border-gray-700 bg-gray-800 px-4 py-3">
         <span className="h-2.5 w-2.5 rounded-full bg-red-500/90" />
         <span className="h-2.5 w-2.5 rounded-full bg-amber-400/90" />
         <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/90" />
-        <span className="ml-auto font-mono text-[0.62rem] uppercase tracking-wider text-zinc-500">
+        <span className="ml-auto font-mono text-[0.62rem] uppercase tracking-wider text-gray-500">
           abhishek@agent-env ~ zsh
         </span>
       </div>
-      <div className="glass-inner space-y-1.5 p-5 font-mono text-[0.78rem] leading-relaxed text-zinc-400 md:text-[0.8rem] md:leading-loose">
+      <div className="space-y-1.5 p-5 font-mono text-[0.78rem] leading-relaxed text-gray-300 md:text-[0.8rem] md:leading-loose">
         {TERMINAL_LINES.slice(0, visible).map((line, i) => {
           if (line.type === "spacer") return <div key={i} className="h-3" />;
           if (line.type === "prompt")
             return (
               <div key={i}>
-                <span className="text-accent-violetMuted">➜ </span>
-                <span className="text-emerald-400/90">{line.text}</span>
+                <span className="text-violet-400">➜ </span>
+                <span className="text-emerald-400">{line.text}</span>
               </div>
             );
           if (line.type === "comment")
             return (
-              <div key={i} className="text-zinc-600">
+              <div key={i} className="text-gray-600">
                 {line.text}
               </div>
             );
@@ -64,7 +64,7 @@ export function AboutTerminal() {
           );
         })}
         {visible >= TERMINAL_LINES.length && (
-          <span className="inline-block h-[1em] w-2 animate-blink bg-accent-violet align-middle" />
+          <span className="inline-block h-[1em] w-2 animate-blink bg-violet-400 align-middle" />
         )}
       </div>
     </div>
@@ -73,10 +73,10 @@ export function AboutTerminal() {
 
 export function AboutText() {
   return (
-    <div className="flex flex-col gap-4 text-[0.97rem] leading-relaxed text-zinc-400">
+    <div className="flex flex-col gap-4 text-[0.97rem] leading-relaxed text-gray-600">
       <p>
         I&apos;m a{" "}
-        <strong className="font-semibold text-white">
+        <strong className="font-semibold text-gray-900">
           Python Developer &amp; AI Engineer
         </strong>{" "}
         specialising in designing and deploying intelligent agent systems,
@@ -84,9 +84,9 @@ export function AboutText() {
       </p>
       <p>
         At{" "}
-        <strong className="font-semibold text-white">Carnival Cruise Line</strong>{" "}
+        <strong className="font-semibold text-gray-900">Carnival Cruise Line</strong>{" "}
         and previously at{" "}
-        <strong className="font-semibold text-white">
+        <strong className="font-semibold text-gray-900">
           Qualex Consulting Services
         </strong>
         , I&apos;ve integrated AWS, Databricks, and cutting-edge LLMs to deliver
@@ -94,7 +94,7 @@ export function AboutText() {
       </p>
       <p>
         Beyond enterprise work, I run a{" "}
-        <strong className="font-medium text-accent-violetMuted">
+        <strong className="font-medium text-violet-600">
           self-hosted home server
         </strong>{" "}
         — deploying AI models, automation workflows, and multiple web apps entirely
@@ -104,7 +104,7 @@ export function AboutText() {
         {ABOUT_CHIPS.map((c) => (
           <span
             key={c}
-            className="rounded-md border border-white/15 bg-white/[0.04] px-3 py-1 text-[0.75rem] font-medium text-zinc-400"
+            className="rounded-md border border-gray-200 bg-gray-100 px-3 py-1 text-[0.75rem] font-medium text-gray-600"
           >
             {c}
           </span>
